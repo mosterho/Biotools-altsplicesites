@@ -1,0 +1,471 @@
+2016-10-03T09:08:21.894-0400 [initandlisten] MongoDB starting : pid=51472 port=27017 dbpath=/var/lib/mongodb 64-bit host=Mint64bit01.fam2.local
+2016-10-03T09:08:21.894-0400 [initandlisten] db version v2.6.10
+2016-10-03T09:08:21.894-0400 [initandlisten] git version: nogitversion
+2016-10-03T09:08:21.894-0400 [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+2016-10-03T09:08:21.894-0400 [initandlisten] build info: Linux lgw01-12 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 BOOST_LIB_VERSION=1_58
+2016-10-03T09:08:21.894-0400 [initandlisten] allocator: tcmalloc
+2016-10-03T09:08:21.894-0400 [initandlisten] options: { config: "/etc/mongodb.conf", net: { bindIp: "127.0.0.1" }, storage: { dbPath: "/var/lib/mongodb", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "/var/log/mongodb/mongodb.log" } }
+2016-10-03T09:08:21.897-0400 [initandlisten] journal dir=/var/lib/mongodb/journal
+2016-10-03T09:08:21.897-0400 [initandlisten] recover : no journal files present, no recovery needed
+2016-10-03T09:08:22.043-0400 [initandlisten] allocating new ns file /var/lib/mongodb/local.ns, filling with zeroes...
+2016-10-03T09:08:22.253-0400 [FileAllocator] allocating new datafile /var/lib/mongodb/local.0, filling with zeroes...
+2016-10-03T09:08:22.253-0400 [FileAllocator] creating directory /var/lib/mongodb/_tmp
+2016-10-03T09:08:22.313-0400 [FileAllocator] done allocating datafile /var/lib/mongodb/local.0, size: 64MB,  took 0.055 secs
+2016-10-03T09:08:22.315-0400 [initandlisten] build index on: local.startup_log properties: { v: 1, key: { _id: 1 }, name: "_id_", ns: "local.startup_log" }
+2016-10-03T09:08:22.316-0400 [initandlisten] 	 added index to empty collection
+2016-10-03T09:08:22.316-0400 [initandlisten] command local.$cmd command: create { create: "startup_log", size: 10485760, capped: true } ntoreturn:1 keyUpdates:0 numYields:0  reslen:37 273ms
+2016-10-03T09:08:22.317-0400 [initandlisten] waiting for connections on port 27017
+2016-10-03T09:09:22.035-0400 [clientcursormon] mem (MB) res:48 virt:380
+2016-10-03T09:09:22.035-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T09:09:22.035-0400 [clientcursormon]  connections:0
+2016-10-03T09:14:22.102-0400 [clientcursormon] mem (MB) res:48 virt:380
+2016-10-03T09:14:22.103-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T09:14:22.103-0400 [clientcursormon]  connections:0
+2016-10-03T09:14:31.145-0400 [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] now exiting
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] dbexit: 
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] shutdown: going to close listening sockets...
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] closing listening socket: 8
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] closing listening socket: 9
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] shutdown: going to flush diaglog...
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] shutdown: going to close sockets...
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] shutdown: lock for final commit...
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] shutdown: final commit...
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] shutdown: closing all files...
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] closeAllFiles() finished
+2016-10-03T09:14:31.939-0400 [signalProcessingThread] journalCleanup...
+2016-10-03T09:14:31.940-0400 [signalProcessingThread] removeJournalFiles
+2016-10-03T09:14:32.574-0400 [signalProcessingThread] shutdown: removing fs lock...
+2016-10-03T09:14:32.574-0400 [signalProcessingThread] dbexit: really exiting now
+2016-10-03T09:15:12.898-0400 ***** SERVER RESTARTED *****
+2016-10-03T09:15:13.186-0400 [initandlisten] MongoDB starting : pid=1119 port=27017 dbpath=/var/lib/mongodb 64-bit host=Mint64bit01.fam2.local
+2016-10-03T09:15:13.186-0400 [initandlisten] db version v2.6.10
+2016-10-03T09:15:13.186-0400 [initandlisten] git version: nogitversion
+2016-10-03T09:15:13.186-0400 [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+2016-10-03T09:15:13.186-0400 [initandlisten] build info: Linux lgw01-12 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 BOOST_LIB_VERSION=1_58
+2016-10-03T09:15:13.186-0400 [initandlisten] allocator: tcmalloc
+2016-10-03T09:15:13.186-0400 [initandlisten] options: { config: "/etc/mongodb.conf", net: { bindIp: "127.0.0.1" }, storage: { dbPath: "/var/lib/mongodb", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "/var/log/mongodb/mongodb.log" } }
+2016-10-03T09:15:13.402-0400 [initandlisten] journal dir=/var/lib/mongodb/journal
+2016-10-03T09:15:13.403-0400 [initandlisten] recover : no journal files present, no recovery needed
+2016-10-03T09:15:15.002-0400 [initandlisten] preallocateIsFaster=true 20.06
+2016-10-03T09:15:17.444-0400 [initandlisten] preallocateIsFaster=true 33.82
+2016-10-03T09:15:20.021-0400 [initandlisten] preallocateIsFaster=true 28.5
+2016-10-03T09:15:20.021-0400 [initandlisten] preallocateIsFaster check took 6.617 secs
+2016-10-03T09:15:20.021-0400 [initandlisten] preallocating a journal file /var/lib/mongodb/journal/prealloc.0
+2016-10-03T09:15:23.026-0400 [initandlisten] 		File Preallocator Progress: 429916160/1073741824	40%
+2016-10-03T09:15:26.633-0400 [initandlisten] 		File Preallocator Progress: 608174080/1073741824	56%
+2016-10-03T09:15:32.667-0400 [initandlisten] 		File Preallocator Progress: 859832320/1073741824	80%
+2016-10-03T09:15:35.165-0400 [initandlisten] 		File Preallocator Progress: 1059061760/1073741824	98%
+2016-10-03T09:15:38.158-0400 [initandlisten] preallocating a journal file /var/lib/mongodb/journal/prealloc.1
+2016-10-03T09:15:41.333-0400 [initandlisten] 		File Preallocator Progress: 429916160/1073741824	40%
+2016-10-03T09:15:44.406-0400 [initandlisten] 		File Preallocator Progress: 618659840/1073741824	57%
+2016-10-03T09:15:47.102-0400 [initandlisten] 		File Preallocator Progress: 891289600/1073741824	83%
+2016-10-03T09:15:52.498-0400 [initandlisten] preallocating a journal file /var/lib/mongodb/journal/prealloc.2
+2016-10-03T09:15:55.084-0400 [initandlisten] 		File Preallocator Progress: 387973120/1073741824	36%
+2016-10-03T09:15:59.263-0400 [initandlisten] 		File Preallocator Progress: 587202560/1073741824	54%
+2016-10-03T09:16:02.007-0400 [initandlisten] 		File Preallocator Progress: 922746880/1073741824	85%
+2016-10-03T09:16:05.330-0400 [initandlisten] 		File Preallocator Progress: 996147200/1073741824	92%
+2016-10-03T09:16:10.709-0400 [initandlisten] waiting for connections on port 27017
+2016-10-03T09:17:10.538-0400 [clientcursormon] mem (MB) res:50 virt:380
+2016-10-03T09:17:10.538-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T09:17:10.538-0400 [clientcursormon]  connections:0
+2016-10-03T09:22:10.604-0400 [clientcursormon] mem (MB) res:50 virt:380
+2016-10-03T09:22:10.604-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T09:22:10.604-0400 [clientcursormon]  connections:0
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] now exiting
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] dbexit: 
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] shutdown: going to close listening sockets...
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] closing listening socket: 8
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] closing listening socket: 12
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] shutdown: going to flush diaglog...
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] shutdown: going to close sockets...
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] shutdown: lock for final commit...
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] shutdown: final commit...
+2016-10-03T09:22:28.402-0400 [signalProcessingThread] shutdown: closing all files...
+2016-10-03T09:22:28.403-0400 [signalProcessingThread] closeAllFiles() finished
+2016-10-03T09:22:28.403-0400 [signalProcessingThread] journalCleanup...
+2016-10-03T09:22:28.403-0400 [signalProcessingThread] removeJournalFiles
+2016-10-03T09:22:28.680-0400 [signalProcessingThread] shutdown: removing fs lock...
+2016-10-03T09:22:28.680-0400 [signalProcessingThread] dbexit: really exiting now
+2016-10-03T09:23:44.870-0400 ***** SERVER RESTARTED *****
+2016-10-03T09:23:45.130-0400 [initandlisten] MongoDB starting : pid=1261 port=27017 dbpath=/var/lib/mongodb 64-bit host=Mint64bit01.fam2.local
+2016-10-03T09:23:45.130-0400 [initandlisten] db version v2.6.10
+2016-10-03T09:23:45.130-0400 [initandlisten] git version: nogitversion
+2016-10-03T09:23:45.130-0400 [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+2016-10-03T09:23:45.130-0400 [initandlisten] build info: Linux lgw01-12 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 BOOST_LIB_VERSION=1_58
+2016-10-03T09:23:45.130-0400 [initandlisten] allocator: tcmalloc
+2016-10-03T09:23:45.130-0400 [initandlisten] options: { config: "/etc/mongodb.conf", net: { bindIp: "127.0.0.1" }, storage: { dbPath: "/var/lib/mongodb", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "/var/log/mongodb/mongodb.log" } }
+2016-10-03T09:23:45.269-0400 [initandlisten] journal dir=/var/lib/mongodb/journal
+2016-10-03T09:23:45.283-0400 [initandlisten] recover : no journal files present, no recovery needed
+2016-10-03T09:23:46.274-0400 [initandlisten] waiting for connections on port 27017
+2016-10-03T09:24:50.245-0400 [clientcursormon] mem (MB) res:47 virt:379
+2016-10-03T09:24:50.245-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T09:24:50.245-0400 [clientcursormon]  connections:0
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] now exiting
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] dbexit: 
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] shutdown: going to close listening sockets...
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] closing listening socket: 8
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] closing listening socket: 11
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] shutdown: going to flush diaglog...
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] shutdown: going to close sockets...
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] shutdown: lock for final commit...
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] shutdown: final commit...
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] shutdown: closing all files...
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] closeAllFiles() finished
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] journalCleanup...
+2016-10-03T09:27:35.854-0400 [signalProcessingThread] removeJournalFiles
+2016-10-03T09:27:35.858-0400 [signalProcessingThread] shutdown: removing fs lock...
+2016-10-03T09:27:35.859-0400 [signalProcessingThread] dbexit: really exiting now
+2016-10-03T09:37:59.672-0400 ***** SERVER RESTARTED *****
+2016-10-03T09:37:59.692-0400 [initandlisten] MongoDB starting : pid=3033 port=27017 dbpath=/var/lib/mongodb 64-bit host=Mint64bit01.fam2.local
+2016-10-03T09:37:59.692-0400 [initandlisten] db version v2.6.10
+2016-10-03T09:37:59.692-0400 [initandlisten] git version: nogitversion
+2016-10-03T09:37:59.692-0400 [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+2016-10-03T09:37:59.692-0400 [initandlisten] build info: Linux lgw01-12 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:16:20 UTC 2015 x86_64 BOOST_LIB_VERSION=1_58
+2016-10-03T09:37:59.693-0400 [initandlisten] allocator: tcmalloc
+2016-10-03T09:37:59.693-0400 [initandlisten] options: { config: "/etc/mongodb.conf", net: { bindIp: "127.0.0.1" }, storage: { dbPath: "/var/lib/mongodb", journal: { enabled: true } }, systemLog: { destination: "file", logAppend: true, path: "/var/log/mongodb/mongodb.log" } }
+2016-10-03T09:37:59.694-0400 [initandlisten] journal dir=/var/lib/mongodb/journal
+2016-10-03T09:37:59.695-0400 [initandlisten] recover : no journal files present, no recovery needed
+2016-10-03T09:37:59.809-0400 [initandlisten] waiting for connections on port 27017
+2016-10-03T09:38:08.083-0400 [initandlisten] connection accepted from 127.0.0.1:54006 #1 (1 connection now open)
+2016-10-03T09:38:16.978-0400 [conn1] end connection 127.0.0.1:54006 (0 connections now open)
+2016-10-03T09:38:59.795-0400 [clientcursormon] mem (MB) res:50 virt:380
+2016-10-03T09:38:59.795-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T09:38:59.795-0400 [clientcursormon]  connections:0
+2016-10-03T09:43:59.839-0400 [clientcursormon] mem (MB) res:51 virt:380
+2016-10-03T09:43:59.839-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T09:43:59.839-0400 [clientcursormon]  connections:0
+2016-10-03T09:48:59.872-0400 [clientcursormon] mem (MB) res:51 virt:380
+2016-10-03T09:48:59.872-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T09:48:59.873-0400 [clientcursormon]  connections:0
+2016-10-03T09:53:59.906-0400 [clientcursormon] mem (MB) res:49 virt:380
+2016-10-03T09:53:59.907-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T09:53:59.907-0400 [clientcursormon]  connections:0
+2016-10-03T09:58:59.976-0400 [clientcursormon] mem (MB) res:38 virt:380
+2016-10-03T09:58:59.996-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T09:58:59.996-0400 [clientcursormon]  connections:0
+2016-10-03T10:04:00.221-0400 [clientcursormon] mem (MB) res:16 virt:380
+2016-10-03T10:04:00.333-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:04:00.333-0400 [clientcursormon]  connections:0
+2016-10-03T10:04:00.340-0400 [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 18ms
+2016-10-03T10:09:00.364-0400 [clientcursormon] mem (MB) res:17 virt:380
+2016-10-03T10:09:00.365-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:09:00.365-0400 [clientcursormon]  connections:0
+2016-10-03T10:14:00.395-0400 [clientcursormon] mem (MB) res:17 virt:380
+2016-10-03T10:14:00.395-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:14:00.395-0400 [clientcursormon]  connections:0
+2016-10-03T10:19:00.428-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T10:19:00.429-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:19:00.429-0400 [clientcursormon]  connections:0
+2016-10-03T10:24:00.459-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T10:24:00.459-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:24:00.459-0400 [clientcursormon]  connections:0
+2016-10-03T10:28:00.496-0400 [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 43ms
+2016-10-03T10:28:00.725-0400 [PeriodicTaskRunner] task: WriteBackManager::cleaner took: 7ms
+2016-10-03T10:28:01.025-0400 [TTLMonitor] query admin.system.indexes query: { expireAfterSeconds: { $exists: true } } planSummary: EOF ntoreturn:0 ntoskip:0 nscanned:0 nscannedObjects:0 keyUpdates:0 numYields:0 locks(micros) r:202139 nreturned:0 reslen:20 201ms
+2016-10-03T10:28:01.167-0400 [TTLMonitor] query local.system.indexes query: { expireAfterSeconds: { $exists: true } } planSummary: COLLSCAN ntoreturn:0 ntoskip:0 nscanned:1 nscannedObjects:1 keyUpdates:0 numYields:0 locks(micros) r:141605 nreturned:0 reslen:20 141ms
+2016-10-03T10:29:00.585-0400 [clientcursormon] mem (MB) res:18 virt:380
+2016-10-03T10:29:00.585-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:29:00.585-0400 [clientcursormon]  connections:0
+2016-10-03T10:34:00.616-0400 [clientcursormon] mem (MB) res:15 virt:380
+2016-10-03T10:34:00.707-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:34:00.707-0400 [clientcursormon]  connections:0
+2016-10-03T10:39:00.738-0400 [clientcursormon] mem (MB) res:15 virt:380
+2016-10-03T10:39:00.738-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:39:00.738-0400 [clientcursormon]  connections:0
+2016-10-03T10:44:00.768-0400 [clientcursormon] mem (MB) res:15 virt:380
+2016-10-03T10:44:00.768-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:44:00.769-0400 [clientcursormon]  connections:0
+2016-10-03T10:48:00.765-0400 [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 10ms
+2016-10-03T10:48:00.882-0400 [PeriodicTaskRunner] task: WriteBackManager::cleaner took: 10ms
+2016-10-03T10:49:00.863-0400 [clientcursormon] mem (MB) res:16 virt:380
+2016-10-03T10:49:00.864-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:49:00.864-0400 [clientcursormon]  connections:0
+2016-10-03T10:54:00.977-0400 [clientcursormon] mem (MB) res:15 virt:380
+2016-10-03T10:54:00.978-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:54:00.978-0400 [clientcursormon]  connections:0
+2016-10-03T10:59:01.007-0400 [clientcursormon] mem (MB) res:15 virt:380
+2016-10-03T10:59:01.007-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T10:59:01.007-0400 [clientcursormon]  connections:0
+2016-10-03T11:04:01.042-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:04:01.042-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:04:01.042-0400 [clientcursormon]  connections:0
+2016-10-03T11:09:01.075-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:09:01.105-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:09:01.105-0400 [clientcursormon]  connections:0
+2016-10-03T11:14:01.135-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:14:01.135-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:14:01.135-0400 [clientcursormon]  connections:0
+2016-10-03T11:19:01.167-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:19:01.167-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:19:01.167-0400 [clientcursormon]  connections:0
+2016-10-03T11:24:01.200-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:24:01.219-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:24:01.219-0400 [clientcursormon]  connections:0
+2016-10-03T11:29:01.250-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:29:01.250-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:29:01.250-0400 [clientcursormon]  connections:0
+2016-10-03T11:34:01.282-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:34:01.282-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:34:01.282-0400 [clientcursormon]  connections:0
+2016-10-03T11:39:01.313-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:39:01.341-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:39:01.341-0400 [clientcursormon]  connections:0
+2016-10-03T11:44:01.373-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:44:01.374-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:44:01.374-0400 [clientcursormon]  connections:0
+2016-10-03T11:49:01.405-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:49:01.405-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:49:01.405-0400 [clientcursormon]  connections:0
+2016-10-03T11:54:01.439-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:54:01.439-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:54:01.440-0400 [clientcursormon]  connections:0
+2016-10-03T11:59:01.471-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T11:59:01.471-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T11:59:01.471-0400 [clientcursormon]  connections:0
+2016-10-03T12:04:01.500-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T12:04:01.500-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T12:04:01.500-0400 [clientcursormon]  connections:0
+2016-10-03T12:05:01.192-0400 [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 44ms
+2016-10-03T12:05:01.601-0400 [TTLMonitor] query local.system.indexes query: { expireAfterSeconds: { $exists: true } } planSummary: COLLSCAN ntoreturn:0 ntoskip:0 nscanned:1 nscannedObjects:1 keyUpdates:0 numYields:1 locks(micros) r:195995 nreturned:0 reslen:20 105ms
+2016-10-03T12:06:01.406-0400 [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 27ms
+2016-10-03T12:06:01.459-0400 [PeriodicTaskRunner] task: WriteBackManager::cleaner took: 10ms
+2016-10-03T12:09:01.699-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T12:09:01.736-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T12:09:01.736-0400 [clientcursormon]  connections:0
+2016-10-03T12:14:01.770-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T12:14:01.796-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T12:14:01.796-0400 [clientcursormon]  connections:0
+2016-10-03T12:19:01.825-0400 [clientcursormon] mem (MB) res:14 virt:380
+2016-10-03T12:19:01.825-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T12:19:01.825-0400 [clientcursormon]  connections:0
+2016-10-03T12:21:01.562-0400 [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 48ms
+2016-10-03T12:21:01.665-0400 [PeriodicTaskRunner] task: WriteBackManager::cleaner took: 18ms
+2016-10-03T12:21:02.387-0400 [TTLMonitor] query admin.system.indexes query: { expireAfterSeconds: { $exists: true } } planSummary: EOF ntoreturn:0 ntoskip:0 nscanned:0 nscannedObjects:0 keyUpdates:0 numYields:0 locks(micros) r:210268 nreturned:0 reslen:20 209ms
+2016-10-03T12:21:02.503-0400 [TTLMonitor] query local.system.indexes query: { expireAfterSeconds: { $exists: true } } planSummary: COLLSCAN ntoreturn:0 ntoskip:0 nscanned:1 nscannedObjects:1 keyUpdates:0 numYields:0 locks(micros) r:115786 nreturned:0 reslen:20 115ms
+2016-10-03T12:24:01.882-0400 [clientcursormon] mem (MB) res:15 virt:380
+2016-10-03T12:24:01.882-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T12:24:01.882-0400 [clientcursormon]  connections:0
+2016-10-03T12:29:01.916-0400 [clientcursormon] mem (MB) res:15 virt:380
+2016-10-03T12:29:01.916-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T12:29:01.916-0400 [clientcursormon]  connections:0
+2016-10-03T12:34:01.946-0400 [clientcursormon] mem (MB) res:15 virt:380
+2016-10-03T12:34:01.947-0400 [clientcursormon]  mapped (incl journal view):160
+2016-10-03T12:34:01.947-0400 [clientcursormon]  connections:0
+2016-10-03T12:34:11.382-0400 [initandlisten] connection accepted from 127.0.0.1:57306 #2 (1 connection now open)
+2016-10-03T12:34:11.657-0400 [initandlisten] connection accepted from 127.0.0.1:57308 #3 (2 connections now open)
+2016-10-03T12:34:35.030-0400 [conn3] allocating new ns file /var/lib/mongodb/chrome.ns, filling with zeroes...
+2016-10-03T12:34:35.309-0400 [FileAllocator] allocating new datafile /var/lib/mongodb/chrome.0, filling with zeroes...
+2016-10-03T12:34:35.309-0400 [FileAllocator] creating directory /var/lib/mongodb/_tmp
+2016-10-03T12:34:35.320-0400 [FileAllocator] done allocating datafile /var/lib/mongodb/chrome.0, size: 64MB,  took 0 secs
+2016-10-03T12:34:35.366-0400 [conn3] build index on: chrome.seq properties: { v: 1, key: { _id: 1 }, name: "_id_", ns: "chrome.seq" }
+2016-10-03T12:34:35.367-0400 [conn3] 	 added index to empty collection
+2016-10-03T12:34:35.374-0400 [conn3] insert chrome.seq query: { accession: "NC_000001", end: 10000, _id: ObjectId('57f2889b9b704d2f6c8c1d05'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CEDC1010D000000C2A086EF1FC71C6E40010000000000000000C0BF010187E786), start: 0 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:343877 343ms
+2016-10-03T12:34:35.374-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000001", end: 10000, _id: ObjectId('57f2889b9b704d2f6c8c1d05'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CEDC1010D000000C2A086EF1FC71C6E40010000000000000000C0BF010187E786), start: 0 } ] } keyUpdates:0 numYields:0 locks(micros) w:98 reslen:40 345ms
+2016-10-03T12:34:38.804-0400 [conn3] insert chrome.seq query: { accession: "NC_000001", end: 15190000, _id: ObjectId('57f2889e9b704d2f6c8c22f3'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C759A5176EB380C43D7C6C30F6E80FB5FCB58B880EC74665E5FD3348965492401106AEF744DCDCE949E9E67FBFC78FECF796D77AAFAF9B7CFABDBCFBBBDE7F9F3D85DCFD7...), start: 15180000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:123232 123ms
+2016-10-03T12:34:38.892-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000001", end: 15190000, _id: ObjectId('57f2889e9b704d2f6c8c22f3'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C759A5176EB380C43D7C6C30F6E80FB5FCB58B880EC74665E5FD3348965492401106AEF744DCDCE949E9E67FBFC78FECF796D77AAFAF9B7CFABDBCFBBBDE7F9F3D85DCFD7...), start: 15180000 } ] } keyUpdates:0 numYields:0 locks(micros) w:130 reslen:40 210ms
+2016-10-03T12:35:01.953-0400 [clientcursormon] mem (MB) res:74 virt:542
+2016-10-03T12:35:01.953-0400 [clientcursormon]  mapped (incl journal view):320
+2016-10-03T12:35:01.953-0400 [clientcursormon]  connections:2
+2016-10-03T12:35:08.529-0400 [conn3] insert chrome.seq query: { accession: "NC_000001", end: 162210000, _id: ObjectId('57f288bc9b704d2f6c8c5c61'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C7D9A5B7224B90E43D7A6E00737C0FDAF655238872ACF8D1B63B7ED7AA89412450220B2A7EAD4F4F755FD3DEC3ADF5755F7B93FF7F5E939D3957FDFB39AFAC67D2FE5CFF7...), start: 162200000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:117572 117ms
+2016-10-03T12:35:08.529-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000001", end: 162210000, _id: ObjectId('57f288bc9b704d2f6c8c5c61'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C7D9A5B7224B90E43D7A6E00737C0FDAF655238872ACF8D1B63B7ED7AA89412450220B2A7EAD4F4F755FD3DEC3ADF5755F7B93FF7F5E939D3957FDFB39AFAC67D2FE5CFF7...), start: 162200000 } ] } keyUpdates:0 numYields:0 locks(micros) w:166 reslen:40 117ms
+2016-10-03T12:35:11.872-0400 [FileAllocator] allocating new datafile /var/lib/mongodb/chrome.1, filling with zeroes...
+2016-10-03T12:35:11.888-0400 [FileAllocator] done allocating datafile /var/lib/mongodb/chrome.1, size: 128MB,  took 0.015 secs
+2016-10-03T12:35:16.696-0400 [conn3] insert chrome.seq query: { accession: "NC_000001", end: 192630000, _id: ObjectId('57f288c49b704d2f6c8c6843'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C659A59722C370C04CFC6C0072E80FB9FC5CDCA0447B69F1CF22CDD2488A5AA80D6993EE7D49973A6BF5F55DFDB39DF87F5BD3B7D5FDE9FEF5D573EEFEFFFF7659DDC34F5...), start: 192620000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:123464 123ms
+2016-10-03T12:35:16.696-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000001", end: 192630000, _id: ObjectId('57f288c49b704d2f6c8c6843'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C659A59722C370C04CFC6C0072E80FB9FC5CDCA0447B69F1CF22CDD2488A5AA80D6993EE7D49973A6BF5F55DFDB39DF87F5BD3B7D5FDE9FEF5D573EEFEFFFF7659DDC34F5...), start: 192620000 } ] } keyUpdates:0 numYields:0 locks(micros) w:80 reslen:40 123ms
+2016-10-03T12:35:30.926-0400 [conn3] build index on: chrome.seedlog properties: { v: 1, key: { _id: 1 }, name: "_id_", ns: "chrome.seedlog" }
+2016-10-03T12:35:30.926-0400 [conn3] 	 added index to empty collection
+2016-10-03T12:36:01.960-0400 [clientcursormon] mem (MB) res:132 virt:798
+2016-10-03T12:36:01.960-0400 [clientcursormon]  mapped (incl journal view):576
+2016-10-03T12:36:01.960-0400 [clientcursormon]  connections:2
+2016-10-03T12:36:27.071-0400 [conn3] insert chrome.seq query: { accession: "NC_000002", end: 148170000, _id: ObjectId('57f2890a9b704d2f6c8cb844'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C5D9A5B961B4B0E03D7C6C30F6E80FB5FCB74310229DF71B76DA954950F3E4080A9ADADA9EF77FF7EBA66FF5EFEBDD9F9FB53BD7F1FF55DFE3EE9EF96DEBF37B5DD7D1FED...), start: 148160000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:351581 351ms
+2016-10-03T12:36:27.071-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000002", end: 148170000, _id: ObjectId('57f2890a9b704d2f6c8cb844'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C5D9A5B961B4B0E03D7C6C30F6E80FB5FCB74310229DF71B76DA954950F3E4080A9ADADA9EF77FF7EBA66FF5EFEBDD9F9FB53BD7F1FF55DFE3EE9EF96DEBF37B5DD7D1FED...), start: 148160000 } ] } keyUpdates:0 numYields:0 locks(micros) w:203 reslen:40 351ms
+2016-10-03T12:36:35.486-0400 [FileAllocator] allocating new datafile /var/lib/mongodb/chrome.2, filling with zeroes...
+2016-10-03T12:36:35.489-0400 [FileAllocator] done allocating datafile /var/lib/mongodb/chrome.2, size: 256MB,  took 0.001 secs
+2016-10-03T12:37:01.967-0400 [clientcursormon] mem (MB) res:203 virt:1310
+2016-10-03T12:37:01.967-0400 [clientcursormon]  mapped (incl journal view):1088
+2016-10-03T12:37:01.967-0400 [clientcursormon]  connections:2
+2016-10-03T12:37:05.546-0400 [conn3] remove chrome.seq query: { accession: "NC_000003", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:7 locks(micros) w:1415736 749ms
+2016-10-03T12:37:05.546-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000003", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 749ms
+2016-10-03T12:37:28.071-0400 [conn3] insert chrome.seq query: { accession: "NC_000003", end: 97500000, _id: ObjectId('57f289479b704d2f6c8d037a'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C8D9A51B61B370C43D7C6C30F6E40FB5F4B2DDE0BD949FBD1F4BCC619CF68240A0441E84DD5A9E9F3F9D375E6FEFDF9FF9CEED3F752DD2FEEC5DA7F141F6B6FBC5FCEE7F3...), start: 97490000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:118676 118ms
+2016-10-03T12:37:28.071-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000003", end: 97500000, _id: ObjectId('57f289479b704d2f6c8d037a'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C8D9A51B61B370C43D7C6C30F6E40FB5F4B2DDE0BD949FBD1F4BCC619CF68240A0441E84DD5A9E9F3F9D375E6FEFDF9FF9CEED3F752DD2FEEC5DA7F141F6B6FBC5FCEE7F3...), start: 97490000 } ] } keyUpdates:0 numYields:0 locks(micros) w:78 reslen:40 118ms
+2016-10-03T12:38:01.973-0400 [clientcursormon] mem (MB) res:280 virt:1310
+2016-10-03T12:38:01.973-0400 [clientcursormon]  mapped (incl journal view):1088
+2016-10-03T12:38:01.973-0400 [clientcursormon]  connections:2
+2016-10-03T12:38:06.242-0400 [conn3] remove chrome.seq query: { accession: "NC_000004", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:6 locks(micros) w:972353 504ms
+2016-10-03T12:38:06.242-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000004", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 505ms
+2016-10-03T12:38:26.676-0400 [conn3] insert chrome.seq query: { accession: "NC_000004", end: 97560000, _id: ObjectId('57f289829b704d2f6c8d50dc'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C759A51961C3B0A44D7C6E1830DB0FFB54C8A7B91CAE36777BB5D5D99A594100411216747F47CC5BCE8CA8EEFBBE6D55C8C9E8BC53DDFCFCA8C73ADF99BD975AE7F9FCBF3...), start: 97550000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:390427 390ms
+2016-10-03T12:38:26.677-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000004", end: 97560000, _id: ObjectId('57f289829b704d2f6c8d50dc'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C759A51961C3B0A44D7C6E1830DB0FFB54C8A7B91CAE36777BB5D5D99A594100411216747F47CC5BCE8CA8EEFBBE6D55C8C9E8BC53DDFCFCA8C73ADF99BD975AE7F9FCBF3...), start: 97550000 } ] } keyUpdates:0 numYields:0 locks(micros) w:137 reslen:40 390ms
+2016-10-03T12:39:00.905-0400 [conn3] remove chrome.seq query: { accession: "NC_000005", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:3 locks(micros) w:516797 267ms
+2016-10-03T12:39:00.905-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000005", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 268ms
+2016-10-03T12:39:01.983-0400 [clientcursormon] mem (MB) res:692 virt:1310
+2016-10-03T12:39:01.983-0400 [clientcursormon]  mapped (incl journal view):1088
+2016-10-03T12:39:01.983-0400 [clientcursormon]  connections:2
+2016-10-03T12:39:20.844-0400 [conn3] insert chrome.seq query: { accession: "NC_000005", end: 94590000, _id: ObjectId('57f289b89b704d2f6c8d9a60'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C559AD9915C310C036353F1830930FF58FCC46E68D6AEF57AE61D3A788000E53EDD73AAE6FB67EA4CDD5FDF973E5CBA1F4EDF0BD3DF87AA3AF55DFB7EA6EFD773CEBDDEFD...), start: 94580000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:166675 166ms
+2016-10-03T12:39:20.844-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000005", end: 94590000, _id: ObjectId('57f289b89b704d2f6c8d9a60'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C559AD9915C310C036353F1830930FF58FCC46E68D6AEF57AE61D3A788000E53EDD73AAE6FB67EA4CDD5FDF973E5CBA1F4EDF0BD3DF87AA3AF55DFB7EA6EFD773CEBDDEFD...), start: 94580000 } ] } keyUpdates:0 numYields:0 locks(micros) w:292 reslen:40 167ms
+2016-10-03T12:39:54.080-0400 [conn3] remove chrome.seq query: { accession: "NC_000006", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:8 locks(micros) w:1656379 877ms
+2016-10-03T12:39:54.080-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000006", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 878ms
+2016-10-03T12:39:59.186-0400 [FileAllocator] allocating new datafile /var/lib/mongodb/chrome.3, filling with zeroes...
+2016-10-03T12:39:59.308-0400 [FileAllocator] done allocating datafile /var/lib/mongodb/chrome.3, size: 512MB,  took 0.028 secs
+2016-10-03T12:39:59.320-0400 [conn3] insert chrome.seq query: { accession: "NC_000006", end: 22130000, _id: ObjectId('57f289df9b704d2f6c8dc4bf'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C8D9A6B9ADC3A0844D7C6C70F36C0FED7725B9C83ECC94C2637EF6EDB12E25114E564577666447CFEEA8CCCCF17D5DD752E54477FBE8EB954E78BF8DCF2F96EAE9D4F9F8B...), start: 22120000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:194997 195ms
+2016-10-03T12:39:59.320-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000006", end: 22130000, _id: ObjectId('57f289df9b704d2f6c8dc4bf'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C8D9A6B9ADC3A0844D7C6C70F36C0FED7725B9C83ECC94C2637EF6EDB12E25114E564577666447CFEEA8CCCCF17D5DD752E54477FBE8EB954E78BF8DCF2F96EAE9D4F9F8B...), start: 22120000 } ] } keyUpdates:0 numYields:0 locks(micros) w:271 reslen:40 195ms
+2016-10-03T12:40:01.989-0400 [clientcursormon] mem (MB) res:461 virt:2334
+2016-10-03T12:40:01.989-0400 [clientcursormon]  mapped (incl journal view):2112
+2016-10-03T12:40:01.989-0400 [clientcursormon]  connections:2
+2016-10-03T12:40:31.816-0400 [conn3] insert chrome.seq query: { accession: "NC_000006", end: 163210000, _id: ObjectId('57f289ff9b704d2f6c8dfbdb'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C8D9A4B7264B90E43D7C6E0801BE0FED7D2291C80D7D1837EAF5C554E67EA4AFC8220E5A9ED7EFFBAB766B676AB66B76BBAFA7DF47BBBE7BDF3FBDB3BB5BF1FDFCBE6DFEF...), start: 163200000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:261960 261ms
+2016-10-03T12:40:31.817-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000006", end: 163210000, _id: ObjectId('57f289ff9b704d2f6c8dfbdb'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C8D9A4B7264B90E43D7C6E0801BE0FED7D2291C80D7D1837EAF5C554E67EA4AFC8220E5A9ED7EFFBAB766B676AB66B76BBAFA7DF47BBBE7BDF3FBDB3BB5BF1FDFCBE6DFEF...), start: 163200000 } ] } keyUpdates:0 numYields:0 locks(micros) w:290 reslen:40 262ms
+2016-10-03T12:40:51.887-0400 [conn3] remove chrome.seq query: { accession: "NC_000007", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:37 locks(micros) w:9930965 5010ms
+2016-10-03T12:40:51.887-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000007", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 5010ms
+2016-10-03T12:41:02.003-0400 [clientcursormon] mem (MB) res:530 virt:2334
+2016-10-03T12:41:02.003-0400 [clientcursormon]  mapped (incl journal view):2112
+2016-10-03T12:41:02.003-0400 [clientcursormon]  connections:2
+2016-10-03T12:41:24.819-0400 [conn3] insert chrome.seq query: { accession: "NC_000007", end: 144860000, _id: ObjectId('57f28a349b704d2f6c8e3789'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C6D9A597624390E04CF86870F5C80F73F4B27DD0C0C75CF94A4522A23820B1677079853357DCE99A9AA3E35737E2F7E6FF027EF9DF9DDD07DEF9A7BFFEFEDDF6DF76AF5FD...), start: 144850000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:118049 118ms
+2016-10-03T12:41:24.819-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000007", end: 144860000, _id: ObjectId('57f28a349b704d2f6c8e3789'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C6D9A597624390E04CF86870F5C80F73F4B27DD0C0C75CF94A4522A23820B1677079853357DCE99A9AA3E35737E2F7E6FF027EF9DF9DDD07DEF9A7BFFEFEDDF6DF76AF5FD...), start: 144850000 } ] } keyUpdates:0 numYields:0 locks(micros) w:125 reslen:40 118ms
+2016-10-03T12:41:44.316-0400 [conn3] remove chrome.seq query: { accession: "NC_000008", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:26 locks(micros) w:5240137 2643ms
+2016-10-03T12:41:44.316-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000008", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 2644ms
+2016-10-03T12:42:01.739-0400 [PeriodicTaskRunner] task: DBConnectionPool-cleaner took: 10ms
+2016-10-03T12:42:01.755-0400 [PeriodicTaskRunner] task: WriteBackManager::cleaner took: 15ms
+2016-10-03T12:42:37.011-0400 [conn3] remove chrome.seq query: { accession: "NC_000009", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:53 locks(micros) w:11477528 5810ms
+2016-10-03T12:42:37.019-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000009", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 5819ms
+2016-10-03T12:43:22.760-0400 [conn3] remove chrome.seq query: { accession: "NC_000010", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:47 locks(micros) w:9961967 5016ms
+2016-10-03T12:43:22.781-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000010", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 5123ms
+2016-10-03T12:43:23.063-0400 [conn3] insert chrome.seq query: { accession: "NC_000010", end: 10000, _id: ObjectId('57f28aaa9b704d2f6c8ead78'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CEDC1010D000000C2A086EF1FC71C6E40010000000000000000C0BF010187E786), start: 0 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:277127 277ms
+2016-10-03T12:43:23.063-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000010", end: 10000, _id: ObjectId('57f28aaa9b704d2f6c8ead78'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CEDC1010D000000C2A086EF1FC71C6E40010000000000000000C0BF010187E786), start: 0 } ] } keyUpdates:0 numYields:0 locks(micros) w:85 reslen:40 277ms
+2016-10-03T12:43:44.081-0400 [conn3] insert chrome.seq query: { accession: "NC_000010", end: 95010000, _id: ObjectId('57f28abf9b704d2f6c8ed294'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C8D9A59726C470E43D7C6E00737C0FDAFA58B384056C9ED8E6859CF2ADD21070E2088D4F4EECC7477CD7C3ED5E7D35DB98F35BBF5F9FFE7D3DE23FB796879BCEEC3DE3B7D...), start: 95000000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:431592 431ms
+2016-10-03T12:43:44.159-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000010", end: 95010000, _id: ObjectId('57f28abf9b704d2f6c8ed294'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C8D9A59726C470E43D7C6E00737C0FDAFA58B384056C9ED8E6859CF2ADD21070E2088D4F4EECC7477CD7C3ED5E7D35DB98F35BBF5F9FFE7D3DE23FB796879BCEEC3DE3B7D...), start: 95000000 } ] } keyUpdates:0 numYields:0 locks(micros) w:221 reslen:40 431ms
+2016-10-03T12:44:11.782-0400 [conn3] remove chrome.seq query: { accession: "NC_000011", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:64 locks(micros) w:13806347 7006ms
+2016-10-03T12:44:11.877-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000011", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 7137ms
+2016-10-03T12:44:12.198-0400 [conn3] insert chrome.seq query: { accession: "NC_000011", end: 10000, _id: ObjectId('57f28adc9b704d2f6c8ee26b'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CEDC1010D000000C2A086EF1FC71C6E40010000000000000000C0BF010187E786), start: 0 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:111647 111ms
+2016-10-03T12:44:12.199-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000011", end: 10000, _id: ObjectId('57f28adc9b704d2f6c8ee26b'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CEDC1010D000000C2A086EF1FC71C6E40010000000000000000C0BF010187E786), start: 0 } ] } keyUpdates:0 numYields:0 locks(micros) w:322 reslen:40 151ms
+2016-10-03T12:44:12.364-0400 [conn3] insert chrome.seq query: { accession: "NC_000011", end: 20000, _id: ObjectId('57f28adc9b704d2f6c8ee26c'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CEDC1010D000000C2A086EF1FC71C6E40010000000000000000C0BF010187E786), start: 10000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:602 162ms
+2016-10-03T12:44:12.364-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000011", end: 20000, _id: ObjectId('57f28adc9b704d2f6c8ee26c'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CEDC1010D000000C2A086EF1FC71C6E40010000000000000000C0BF010187E786), start: 10000 } ] } keyUpdates:0 numYields:0 locks(micros) w:330 reslen:40 163ms
+2016-10-03T12:44:25.146-0400 [conn3] insert chrome.seq query: { accession: "NC_000011", end: 57220000, _id: ObjectId('57f28ae89b704d2f6c8ef8c4'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C8D9A599623B90E43D7C6C30F6E80FB5FCB0BE102F290EE7E5D39D8698743140700A4AA6AABEBFCDBADE99E9A7DBEF8EE7A7EFAF9FB79B7BB9FF79F8BF7797CAE7A9EEBB7...), start: 57210000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:440705 440ms
+2016-10-03T12:44:25.146-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000011", end: 57220000, _id: ObjectId('57f28ae89b704d2f6c8ef8c4'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C8D9A599623B90E43D7C6C30F6E80FB5FCB0BE102F290EE7E5D39D8698743140700A4AA6AABEBFCDBADE99E9A7DBEF8EE7A7EFAF9FB79B7BB9FF79F8BF7797CAE7A9EEBB7...), start: 57210000 } ] } keyUpdates:0 numYields:0 locks(micros) w:98 reslen:40 440ms
+2016-10-03T12:45:01.814-0400 [PeriodicTaskRunner] task: WriteBackManager::cleaner took: 13ms
+2016-10-03T12:45:02.275-0400 [clientcursormon] mem (MB) res:632 virt:2334
+2016-10-03T12:45:02.275-0400 [clientcursormon]  mapped (incl journal view):2112
+2016-10-03T12:45:02.275-0400 [clientcursormon]  connections:2
+2016-10-03T12:45:03.017-0400 [conn3] remove chrome.seq query: { accession: "NC_000012", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:79 locks(micros) w:16197031 8206ms
+2016-10-03T12:45:03.017-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000012", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 8206ms
+2016-10-03T12:45:16.207-0400 [FileAllocator] allocating new datafile /var/lib/mongodb/chrome.4, filling with zeroes...
+2016-10-03T12:45:16.346-0400 [FileAllocator] done allocating datafile /var/lib/mongodb/chrome.4, size: 1024MB,  took 0.05 secs
+2016-10-03T12:45:16.358-0400 [conn3] insert chrome.seq query: { accession: "NC_000012", end: 57920000, _id: ObjectId('57f28b1c9b704d2f6c8f2dc8'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C659A5B962B390804D7A6C3071B60FF6B192B23903D7DFBE1B6AB5412E29124A8BBA67BFACC3935339D9F9AAAD35DE77E557F3E55F5397DAF7E7EEE98D39FEFBA83CF6758...), start: 57910000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:228763 228ms
+2016-10-03T12:45:16.370-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000012", end: 57920000, _id: ObjectId('57f28b1c9b704d2f6c8f2dc8'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C659A5B962B390804D7A6C3071B60FF6B192B23903D7DFBE1B6AB5412E29124A8BBA67BFACC3935339D9F9AAAD35DE77E557F3E55F5397DAF7E7EEE98D39FEFBA83CF6758...), start: 57910000 } ] } keyUpdates:0 numYields:0 locks(micros) w:96 reslen:40 228ms
+2016-10-03T12:46:02.451-0400 [clientcursormon] mem (MB) res:426 virt:4382
+2016-10-03T12:46:02.451-0400 [clientcursormon]  mapped (incl journal view):4160
+2016-10-03T12:46:02.451-0400 [clientcursormon]  connections:2
+2016-10-03T12:46:16.261-0400 [conn3] remove chrome.seq query: { accession: "NC_000013", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:295 locks(micros) w:68026034 34148ms
+2016-10-03T12:46:16.277-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000013", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 34192ms
+2016-10-03T12:46:55.629-0400 [conn3] remove chrome.seq query: { accession: "NC_000014", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:72 locks(micros) w:15285354 7713ms
+2016-10-03T12:46:55.630-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000014", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 7719ms
+2016-10-03T12:47:01.926-0400 [PeriodicTaskRunner] task: WriteBackManager::cleaner took: 10ms
+2016-10-03T12:47:02.558-0400 [clientcursormon] mem (MB) res:474 virt:4382
+2016-10-03T12:47:02.558-0400 [clientcursormon]  mapped (incl journal view):4160
+2016-10-03T12:47:02.558-0400 [clientcursormon]  connections:2
+2016-10-03T12:47:37.419-0400 [conn3] remove chrome.seq query: { accession: "NC_000015", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:118 locks(micros) w:26663276 13418ms
+2016-10-03T12:47:37.436-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000015", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 13435ms
+2016-10-03T12:48:12.250-0400 [conn3] remove chrome.seq query: { accession: "NC_000016", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:71 locks(micros) w:15488652 7816ms
+2016-10-03T12:48:12.251-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000016", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 7816ms
+2016-10-03T12:48:47.213-0400 [conn3] remove chrome.seq query: { accession: "NC_000017", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:80 locks(micros) w:16522228 8297ms
+2016-10-03T12:48:47.234-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000017", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 8318ms
+2016-10-03T12:48:47.490-0400 [conn3] insert chrome.seq query: { accession: "NC_000017", end: 10000, _id: ObjectId('57f28bef9b704d2f6c8fedbe'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CAD9A5B7623BD0D84D78683076C00FB5F4B9AF555B1258FFF6492137B466EB5D824884BA100AA6A7AB7B7ABBB779ECBE7B56B6B9EFFB5BA9E6A2E9F91B31AF7FC7B6ECDB9...), start: 0 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:149112 149ms
+2016-10-03T12:48:47.529-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000017", end: 10000, _id: ObjectId('57f28bef9b704d2f6c8fedbe'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CAD9A5B7623BD0D84D78683076C00FB5F4B9AF555B1258FFF6492137B466EB5D824884BA100AA6A7AB7B7ABBB779ECBE7B56B6B9EFFB5BA9E6A2E9F91B31AF7FC7B6ECDB9...), start: 0 } ] } keyUpdates:0 numYields:0 locks(micros) w:115 reslen:40 149ms
+2016-10-03T12:49:21.487-0400 [conn3] remove chrome.seq query: { accession: "NC_000018", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:95 locks(micros) w:19890847 10023ms
+2016-10-03T12:49:21.487-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000018", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 10024ms
+2016-10-03T12:49:52.070-0400 [conn3] remove chrome.seq query: { accession: "NC_000019", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:154 locks(micros) w:18179174 9450ms
+2016-10-03T12:49:52.070-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000019", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 9450ms
+2016-10-03T12:50:20.326-0400 [conn3] remove chrome.seq query: { accession: "NC_000020", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:167 locks(micros) w:20900725 10560ms
+2016-10-03T12:50:20.326-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000020", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 10561ms
+2016-10-03T12:50:26.381-0400 [conn3] insert chrome.seq query: { accession: "NC_000020", end: 23560000, _id: ObjectId('57f28c529b704d2f6c904c45'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C7D9A5B76E4480E43D7C6C30F6E80FB5FCB64E00294AB3FC6DD65A733A550F005800C6FEFCEECECF6D6D4EF55CDEFD5FEBEA6FBF7BA7E17D4BBA2B69A57BF8BDFBBBFEF55...), start: 23550000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:288 159ms
+2016-10-03T12:50:26.381-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000020", end: 23560000, _id: ObjectId('57f28c529b704d2f6c904c45'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789C7D9A5B76E4480E43D7C6C30F6E80FB5FCB64E00294AB3FC6DD65A733A550F005800C6FEFCEECECF6D6D4EF55CDEFD5FEBEA6FBF7BA7E17D4BBA2B69A57BF8BDFBBBFEF55...), start: 23550000 } ] } keyUpdates:0 numYields:0 locks(micros) w:57 reslen:40 159ms
+2016-10-03T12:51:18.251-0400 [conn3] remove chrome.seq query: { accession: "NC_000021", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:422 locks(micros) w:77943136 39479ms
+2016-10-03T12:51:18.260-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000021", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 39488ms
+2016-10-03T12:52:03.151-0400 [clientcursormon] mem (MB) res:482 virt:4382
+2016-10-03T12:52:03.151-0400 [clientcursormon]  mapped (incl journal view):4160
+2016-10-03T12:52:03.151-0400 [clientcursormon]  connections:2
+2016-10-03T12:52:11.908-0400 [conn3] remove chrome.seq query: { accession: "NC_000022", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:707 locks(micros) w:77971203 39717ms
+2016-10-03T12:52:11.909-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000022", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 39718ms
+2016-10-03T12:52:46.130-0400 [conn3] remove chrome.seq query: { accession: "NC_000023", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:544 locks(micros) w:21904962 11717ms
+2016-10-03T12:52:46.131-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000023", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 11717ms
+2016-10-03T12:53:47.207-0400 [conn3] remove chrome.seq query: { accession: "NC_000024", organism: "Homo sapiens", build: "37" } ndeleted:0 keyUpdates:0 numYields:948 locks(micros) w:39616257 22265ms
+2016-10-03T12:53:47.276-0400 [conn3] command chrome.$cmd command: delete { delete: "seq", ordered: true, deletes: [ { q: { accession: "NC_000024", organism: "Homo sapiens", build: "37" }, limit: 0 } ] } keyUpdates:0 numYields:0  reslen:40 22333ms
+2016-10-03T12:53:56.393-0400 [conn3] insert chrome.seq query: { accession: "NC_000024", end: 58950000, _id: ObjectId('57f28d249b704d2f6c90d63b'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CEDC1010D000000C2A086EF1FC71C6E40010000000000000000C0BF010187E786), start: 58940000 } ninserted:1 keyUpdates:0 numYields:0 locks(micros) w:267823 267ms
+2016-10-03T12:53:56.393-0400 [conn3] command chrome.$cmd command: insert { insert: "seq", ordered: true, documents: [ { accession: "NC_000024", end: 58950000, _id: ObjectId('57f28d249b704d2f6c90d63b'), taxon_id: "9606", build: "37", organism: "Homo sapiens", seq: BinData(0, 789CEDC1010D000000C2A086EF1FC71C6E40010000000000000000C0BF010187E786), start: 58940000 } ] } keyUpdates:0 numYields:0 locks(micros) w:101 reslen:40 268ms
+2016-10-03T12:53:56.699-0400 [conn3] build index on: chrome.seq properties: { v: 1, key: { accession: -1, start: 1 }, name: "accession_-1_start_1", ns: "chrome.seq" }
+2016-10-03T12:53:56.722-0400 [conn3] 	 building index using bulk method
+2016-10-03T12:53:59.015-0400 [conn3] 		Index Build: 64200/309579	20%
+2016-10-03T12:54:02.022-0400 [conn3] 		Index Build: 140200/309579	45%
+2016-10-03T12:54:05.007-0400 [conn3] 		Index Build: 216100/309579	69%
+2016-10-03T12:54:08.006-0400 [conn3] 		Index Build: 296600/309579	95%
+2016-10-03T12:54:09.543-0400 [conn3] build index done.  scanned 309579 total records. 12.843 secs
+2016-10-03T12:54:09.570-0400 [conn3] command chrome.$cmd command: createIndexes { createIndexes: "seq", indexes: [ { key: { accession: -1, start: 1 }, name: "accession_-1_start_1" } ] } keyUpdates:0 numYields:0 locks(micros) r:14069 w:12943851 reslen:113 12958ms
+2016-10-03T12:54:09.665-0400 [conn3] build index on: chrome.seq properties: { v: 1, key: { accession: 1, start: 1 }, name: "accession_1_start_1", ns: "chrome.seq" }
+2016-10-03T12:54:09.665-0400 [conn3] 	 building index using bulk method
+2016-10-03T12:54:12.015-0400 [conn3] 		Index Build: 62000/309579	20%
+2016-10-03T12:54:15.010-0400 [conn3] 		Index Build: 152500/309579	49%
+2016-10-03T12:54:18.009-0400 [conn3] 		Index Build: 224100/309579	72%
+2016-10-03T12:54:21.005-0400 [conn3] 		Index Build: 276900/309579	89%
+2016-10-03T12:54:22.931-0400 [conn3] build index done.  scanned 309579 total records. 13.265 secs
+2016-10-03T12:54:22.972-0400 [conn3] command chrome.$cmd command: createIndexes { createIndexes: "seq", indexes: [ { key: { accession: 1, start: 1 }, name: "accession_1_start_1" } ] } keyUpdates:0 numYields:0 locks(micros) r:52 w:13315133 reslen:113 13400ms
+2016-10-03T12:54:23.042-0400 [conn3] build index on: chrome.seq properties: { v: 1, key: { accession: -1 }, name: "accession_-1", ns: "chrome.seq" }
+2016-10-03T12:54:23.042-0400 [conn3] 	 building index using bulk method
+2016-10-03T12:54:26.007-0400 [conn3] 		Index Build: 71600/309579	23%
+2016-10-03T12:54:29.004-0400 [conn3] 		Index Build: 130800/309579	42%
+2016-10-03T12:54:32.009-0400 [conn3] 		Index Build: 202700/309579	65%
+2016-10-03T12:54:35.004-0400 [conn3] 		Index Build: 253600/309579	81%
+2016-10-03T12:54:37.963-0400 [conn3] build index done.  scanned 309579 total records. 14.92 secs
+2016-10-03T12:54:37.990-0400 [conn3] command chrome.$cmd command: createIndexes { createIndexes: "seq", indexes: [ { key: { accession: -1 }, name: "accession_-1" } ] } keyUpdates:0 numYields:0 locks(micros) r:61 w:15011699 reslen:113 15017ms
+2016-10-03T12:54:38.030-0400 [conn3] build index on: chrome.seq properties: { v: 1, key: { organism: -1 }, name: "organism_-1", ns: "chrome.seq" }
+2016-10-03T12:54:38.030-0400 [conn3] 	 building index using bulk method
+2016-10-03T12:54:41.013-0400 [conn3] 		Index Build: 65200/309579	21%
+2016-10-03T12:54:44.012-0400 [conn3] 		Index Build: 98100/309579	31%
+2016-10-03T12:54:47.005-0400 [conn3] 		Index Build: 156700/309579	50%
+2016-10-03T12:54:50.005-0400 [conn3] 		Index Build: 224500/309579	72%
+2016-10-03T12:54:53.016-0400 [conn3] 		Index Build: 305400/309579	98%
+2016-10-03T12:54:53.919-0400 [conn3] build index done.  scanned 309579 total records. 15.889 secs
+2016-10-03T12:54:53.941-0400 [conn3] command chrome.$cmd command: createIndexes { createIndexes: "seq", indexes: [ { key: { organism: -1 }, name: "organism_-1" } ] } keyUpdates:0 numYields:0 locks(micros) r:54 w:15932107 reslen:113 15943ms
+2016-10-03T12:54:54.081-0400 [conn3] build index on: chrome.seq properties: { v: 1, key: { organism: 1 }, name: "organism_1", ns: "chrome.seq" }
+2016-10-03T12:54:54.081-0400 [conn3] 	 building index using bulk method
+2016-10-03T12:54:57.004-0400 [conn3] 		Index Build: 87100/309579	28%
+2016-10-03T12:55:00.047-0400 [conn3] 		Index Build: 127200/309579	41%
+2016-10-03T12:55:03.054-0400 [conn3] 		Index Build: 141200/309579	45%
+2016-10-03T12:55:06.006-0400 [conn3] 		Index Build: 155800/309579	50%
+2016-10-03T12:55:09.069-0400 [conn3] 		Index Build: 177100/309579	57%
+2016-10-03T12:55:12.027-0400 [conn3] 		Index Build: 204200/309579	65%
+2016-10-03T12:55:15.025-0400 [conn3] 		Index Build: 213800/309579	69%
+2016-10-03T12:55:18.012-0400 [conn3] 		Index Build: 251100/309579	81%
+2016-10-03T12:55:21.026-0400 [conn3] 		Index Build: 274300/309579	88%
+2016-10-03T12:55:24.423-0400 [conn3] build index done.  scanned 309579 total records. 30.342 secs
+2016-10-03T12:55:24.458-0400 [conn3] command chrome.$cmd command: createIndexes { createIndexes: "seq", indexes: [ { key: { organism: 1 }, name: "organism_1" } ] } keyUpdates:0 numYields:0 locks(micros) r:22 w:30390904 reslen:113 30514ms
+2016-10-03T12:55:24.552-0400 [conn3] build index on: chrome.seq properties: { v: 1, key: { build: -1 }, name: "build_-1", ns: "chrome.seq" }
+2016-10-03T12:55:24.553-0400 [conn3] 	 building index using bulk method
+2016-10-03T12:55:27.032-0400 [conn3] 		Index Build: 41700/309579	13%
+2016-10-03T12:55:30.076-0400 [conn3] 		Index Build: 110300/309579	35%
+2016-10-03T12:55:33.006-0400 [conn3] 		Index Build: 189400/309579	61%
+2016-10-03T12:55:36.009-0400 [conn3] 		Index Build: 254000/309579	82%
+2016-10-03T12:55:38.990-0400 [conn3] build index done.  scanned 309579 total records. 14.438 secs
+2016-10-03T12:55:39.024-0400 [conn3] command chrome.$cmd command: createIndexes { createIndexes: "seq", indexes: [ { key: { build: -1 }, name: "build_-1" } ] } keyUpdates:0 numYields:0 locks(micros) r:44 w:14547905 reslen:113 14563ms
+2016-10-03T12:55:39.102-0400 [conn3] build index on: chrome.seq properties: { v: 1, key: { taxon_id: -1 }, name: "taxon_id_-1", ns: "chrome.seq" }
+2016-10-03T12:55:39.103-0400 [conn3] 	 building index using bulk method
+2016-10-03T12:55:42.009-0400 [conn3] 		Index Build: 75800/309579	24%
+2016-10-03T12:55:45.004-0400 [conn3] 		Index Build: 167400/309579	54%
+2016-10-03T12:55:48.004-0400 [conn3] 		Index Build: 228500/309579	73%
+2016-10-03T12:55:51.002-0400 [conn3] 		Index Build: 301700/309579	97%
+2016-10-03T12:55:52.051-0400 [conn3] build index done.  scanned 309579 total records. 12.948 secs
+2016-10-03T12:55:52.073-0400 [conn3] command chrome.$cmd command: createIndexes { createIndexes: "seq", indexes: [ { key: { taxon_id: -1 }, name: "taxon_id_-1" } ] } keyUpdates:0 numYields:0 locks(micros) r:175 w:13044471 reslen:113 13047ms
+2016-10-03T12:55:53.022-0400 [conn3] end connection 127.0.0.1:57308 (1 connection now open)
+2016-10-03T12:55:53.034-0400 [conn2] end connection 127.0.0.1:57306 (1 connection now open)
+2016-10-03T12:57:32.085-0400 [clientcursormon] mem (MB) res:124 virt:4430
+2016-10-03T12:57:32.085-0400 [clientcursormon]  mapped (incl journal view):4160
+2016-10-03T12:57:32.085-0400 [clientcursormon]  connections:0
+2016-10-03T13:02:32.119-0400 [clientcursormon] mem (MB) res:124 virt:4430
+2016-10-03T13:02:32.119-0400 [clientcursormon]  mapped (incl journal view):4160
+2016-10-03T13:02:32.119-0400 [clientcursormon]  connections:0

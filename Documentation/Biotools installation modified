@@ -1,0 +1,62 @@
+
+##################################################
+Step 1 install nodejs
+Node.js
+Used the following link: 
+https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
+
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+#################################################
+step 2 install mongodb
+MongoDB
+Follow instructions as usual on Mongodb website
+needed to also do the following:
+sudo apt install mongodb-server 
+MongoDB now runs as a service
+The default database path was left as /var/lib/mongodb
+plese see /etc/mongodb.conf for details
+
+
+#################################################
+python3 was part of Mint's installation
+
+running "python3 --version" results in "Python 3.5.2"
+
+pip3 was not installed by default, used:
+sudo apt install python3-pip
+
+after this using "pip3 install" for the modules ran fine,
+including Node.js dependency 
+
+
+########################################################
+Step 4 install git
+After some experimenting, I elected to use gitkraken
+
+https://www.gitkraken.com/download/linux-deb
+
+GUI based, but includes command line interface on terminal
+
+Follow instructions to download DEB to "downloads" folder, then used package manager "gdebi" to install.
+
+After installing, tried to use SSH to connect to Git through gitkraken, but wound-up just using credentials
+
+###############################################################
+Step  Download source code
+
+Download successful next set of instructions to run "npm install" in the "serve"folder failed 
+(see screen print???)
+
+#############################################################
+Step 6 seed data sources
+
+MUCH better results running on a clean VM using Mint
+
+6a took roughly 10-15 minutes, seemed to struggle when opening Firefox for something else
+
+Opened separate terminal ran "TOP", processes were using a lot of CPU and memory, will
+increase VM to use 4 CPU and around 5Gb memory
+
+
