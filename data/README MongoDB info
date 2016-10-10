@@ -1,6 +1,0 @@
-MongoDB is currently running as a service on this box
-
-Elected to leave MongoDB running on the default database path 
-/var/lib/Mongodb
-
-
