@@ -85,4 +85,14 @@ Since mongod runs as a sevice on my VM, followed instructions to
 call node separately. Had trouble with calling "node app.js", but I can run a simple "hello world"
 node example. Please see Github for screen prints.
 
+See the following link for getting "node app.js" working
+A) 
+http://stackoverflow.com/questions/28651028/cannot-find-module-build-release-bson-code-module-not-found-js-bson
+bson = require('../build/Release/bson'); 
+B) 
+
+Once I finally remembered to install g++ I reran "npm install" successfully
+
+I also started the tools from Firefox using localhost:3000
+
 
