@@ -59,4 +59,30 @@ MUCH better results running on a clean VM using Mint
 Opened separate terminal ran "TOP", processes were using a lot of CPU and memory, will
 increase VM to use 4 CPU and around 5Gb memory
 
+#########################################################
+Step 7 Verify data
+
+This ran successfully in my version as well as the original biotools folder
+
+Was able to perform 
+db.seq.find().limit(1).pretty()
+db.mrna.find().limit(1).pretty()
+db.gene.find().limit(1).pretty()
+
+########################################################
+Step 8 Create indexes
+
+Did not do
+
+########################################################
+Step 9 Serving your data
+
+Ran into error messages call "./biotools start"
+tried changing first line "#! /usr/bin/env python"
+to use "#! /usr/bin/env python3"  Note: python3
+
+Since mongod runs as a sevice on my VM, followed instructions to 
+call node separately. Had trouble with calling "node app.js", but I can run a simple "hello world"
+node example. Please see Github for screen prints.
+
 

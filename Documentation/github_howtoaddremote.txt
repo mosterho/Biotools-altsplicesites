@@ -1,0 +1,2 @@
+git remote add origin https://github.com/mosterho/Biotools_marty.git
+git push -u origin master
