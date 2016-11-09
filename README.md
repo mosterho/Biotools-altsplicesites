@@ -1,5 +1,8 @@
 Biotools_marty
 
+This shows the progression I've made in learning MongoDB
+
+
 in MongoDB, start on terminal command line:
 
 mongo chrome
@@ -67,7 +70,7 @@ db.mrna.aggregate([  {$match:{gene_id: {$eq:"522"}}} , {$unwind:"$exons"},  {$pr
 { "exons" : { "start" : 27097537, "end" : 27097661 }, "accession" : "NM_001003703.1", "gene_id" : "522" }
 { "exons" : { "start" : 27096791, "end" : 27096988 }, "accession" : "NM_001003703.1", "gene_id" : "522" }
 
-##  or... (personal favorite...)
+##  or... 
 db.mrna.aggregate([  {$match:{gene_id: {$eq:"522"}}} , {$unwind:"$exons"}, {$sort:{"exons.start":1}}, {$project:{_id:0,  gene_id:1, accession:1, exons:1 }}   ])
 { "exons" : { "start" : 27096791, "end" : 27096988 }, "accession" : "NM_001003697.1", "gene_id" : "522" }
 { "exons" : { "start" : 27096791, "end" : 27096988 }, "accession" : "NM_001003696.1", "gene_id" : "522" }
@@ -90,6 +93,22 @@ db.mrna.aggregate([  {$match:{gene_id: {$eq:"522"}}} , {$unwind:"$exons"}, {$sor
 { "exons" : { "start" : 27107626, "end" : 27107965 }, "accession" : "NM_001003696.1", "gene_id" : "522" }
 { "exons" : { "start" : 27107798, "end" : 27107965 }, "accession" : "NM_001003697.1", "gene_id" : "522" }
 
+## different geneid, smaller result set, changed sort order
+##  also use geneids 8913 (large result set), 7412  (moderate)
+db.mrna.aggregate([  {$match:{gene_id: {$eq:"6003"}}} , {$unwind:"$exons"}, {$sort:{accession:1, "exons.start":1}}, {$project:{_id:0,  gene_id:1, accession:1, exons:1 }}   ])
+{ "exons" : { "start" : 192605268, "end" : 192605447 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
+{ "exons" : { "start" : 192606720, "end" : 192606790 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
+{ "exons" : { "start" : 192607294, "end" : 192607333 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
+{ "exons" : { "start" : 192613461, "end" : 192613529 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
+{ "exons" : { "start" : 192617056, "end" : 192617117 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
+{ "exons" : { "start" : 192627331, "end" : 192627497 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
+{ "exons" : { "start" : 192628468, "end" : 192629441 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
+{ "exons" : { "start" : 192605268, "end" : 192605447 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
+{ "exons" : { "start" : 192606720, "end" : 192606790 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
+{ "exons" : { "start" : 192613461, "end" : 192613529 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
+{ "exons" : { "start" : 192617056, "end" : 192617117 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
+{ "exons" : { "start" : 192627331, "end" : 192627497 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
+{ "exons" : { "start" : 192628468, "end" : 192629441 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
 
 
 ##  how to create a collection using "insert"
