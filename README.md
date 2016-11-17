@@ -2,17 +2,15 @@ Biotools_marty
 
 This shows the progression I've made in learning MongoDB
 
-
 in MongoDB, start on terminal command line:
 
 mongo chrome
 db.mrna.find({}, {accession:1})  ## need empty set {} to include all rows, but just project the accession number
-db.mrna.find({}, {accession:1,gene_id:1, _id:0}).sort({accession:1})  ## empty set for include, sort by accession number
+db.mrna.find({}, {accession:1,gene_id:1, _id:0}).sort({accession:1})  
 db.mrna.find({}, { accession:1, gene_id:1, chrom:1, _id:0}).sort({chrom:1, gene_id:1})
 db.mrna.find({gene_id:/^872/}, {gene_id: 1} )
 db.mrna.find({gene_id:/^872/}, {gene_id: 1} ).sort({gene_id: -1})
 
-###  
 db.mrna.find({gene_id:"149628"}, {  _id:0}).pretty()
 
 db.mrna.aggregate([ {$project:{gene_id:1}} ])
@@ -48,7 +46,7 @@ db.mrna.aggregate([ {$group: {_id: "$gene_id", total: {$sum: 1 }}}, {$sort : {to
 db.mrna.aggregate([  {$unwind :"$exons"}, {$project:{_id:0, gene_id:1, accession:1, exons:1}}  ])
 db.mrna.aggregate([  {$unwind :"$exons"}, {$project:{_id:0, exons:1, gene_id:1, accession:1}}, {$match:{gene_id: {$eq:"522"}}}  ])
 db.mrna.aggregate([  {$unwind :"$exons"}, {$match:{gene_id: {$eq:"522"}}}  , {$project:{_id:0, exons:1, gene_id:1, accession:1}}])
-db.mrna.aggregate([  {$match:{gene_id: {$eq:"522"}}} , {$unwind:"$exons"},  {$project:{_id:0,  gene_id:1, accession:1, exons:1 }}])
+db.mrna.aggregate([  {$match:{gene_id: {$eq:"522"}}} , {$unwind:"$exons"},  {$project:{_id:0,  gene_id:1, accession:1, exons:1}}])
 { "exons" : { "start" : 27107798, "end" : 27107965 }, "accession" : "NM_001003697.1", "gene_id" : "522" }
 { "exons" : { "start" : 27101942, "end" : 27102112 }, "accession" : "NM_001003697.1", "gene_id" : "522" }
 { "exons" : { "start" : 27097537, "end" : 27097661 }, "accession" : "NM_001003697.1", "gene_id" : "522" }
@@ -70,45 +68,41 @@ db.mrna.aggregate([  {$match:{gene_id: {$eq:"522"}}} , {$unwind:"$exons"},  {$pr
 { "exons" : { "start" : 27097537, "end" : 27097661 }, "accession" : "NM_001003703.1", "gene_id" : "522" }
 { "exons" : { "start" : 27096791, "end" : 27096988 }, "accession" : "NM_001003703.1", "gene_id" : "522" }
 
-##  or... 
-db.mrna.aggregate([  {$match:{gene_id: {$eq:"522"}}} , {$unwind:"$exons"}, {$sort:{"exons.start":1}}, {$project:{_id:0,  gene_id:1, accession:1, exons:1 }}   ])
-{ "exons" : { "start" : 27096791, "end" : 27096988 }, "accession" : "NM_001003697.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27096791, "end" : 27096988 }, "accession" : "NM_001003696.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27096791, "end" : 27096988 }, "accession" : "NM_001685.4", "gene_id" : "522" }
-{ "exons" : { "start" : 27096791, "end" : 27096988 }, "accession" : "NM_001003701.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27096791, "end" : 27096988 }, "accession" : "NM_001003703.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27097537, "end" : 27097661 }, "accession" : "NM_001003697.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27097537, "end" : 27097661 }, "accession" : "NM_001003696.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27097537, "end" : 27097661 }, "accession" : "NM_001685.4", "gene_id" : "522" }
-{ "exons" : { "start" : 27097537, "end" : 27097661 }, "accession" : "NM_001003701.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27097537, "end" : 27097661 }, "accession" : "NM_001003703.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27101942, "end" : 27102112 }, "accession" : "NM_001003697.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27101942, "end" : 27102112 }, "accession" : "NM_001003696.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27101942, "end" : 27102112 }, "accession" : "NM_001685.4", "gene_id" : "522" }
-{ "exons" : { "start" : 27101942, "end" : 27102112 }, "accession" : "NM_001003701.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27101942, "end" : 27102112 }, "accession" : "NM_001003703.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27107164, "end" : 27107965 }, "accession" : "NM_001003703.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27107250, "end" : 27107965 }, "accession" : "NM_001003701.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27107300, "end" : 27107965 }, "accession" : "NM_001685.4", "gene_id" : "522" }
-{ "exons" : { "start" : 27107626, "end" : 27107965 }, "accession" : "NM_001003696.1", "gene_id" : "522" }
-{ "exons" : { "start" : 27107798, "end" : 27107965 }, "accession" : "NM_001003697.1", "gene_id" : "522" }
+##  or...
+db.mrna.aggregate([  {$match:{gene_id: {$eq:"522"}}} , {$unwind:"$exons"}, {$sort:{"exons.start":1}}, {$project:{_id:0,gene_id:1, accession:1, exons:1 }}   ])
+
 
 ## different geneid, smaller result set, changed sort order
 ##  also use geneids 8913 (large result set), 7412  (moderate)
-db.mrna.aggregate([  {$match:{gene_id: {$eq:"6003"}}} , {$unwind:"$exons"}, {$sort:{accession:1, "exons.start":1}}, {$project:{_id:0,  gene_id:1, accession:1, exons:1 }}   ])
+db.mrna.aggregate([  {$match:{gene_id: {$eq:"6003"}}} , {$unwind:"$exons"}, {$sort:{accession:1, "exons.start":1}}, {$project:{_id:0,  gene_id:1, accession:1, exons:1 }} ])
+
+
+#####  best sort to determine if gene/exon positions have alternative splice sites, but must
+#####  join with a summary (gene/accession#)
+db.mrna.aggregate([  {$match:{gene_id: {$eq:"6003"}}} , {$unwind:"$exons"}, {$sort:{ "exons.start":1, "exons.end":1, accession:1}}, {$project:{_id:0,  gene_id:1, accession:1, exons:1 }} ])
 { "exons" : { "start" : 192605268, "end" : 192605447 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
+{ "exons" : { "start" : 192605268, "end" : 192605447 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
 { "exons" : { "start" : 192606720, "end" : 192606790 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
+{ "exons" : { "start" : 192606720, "end" : 192606790 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
 { "exons" : { "start" : 192607294, "end" : 192607333 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
 { "exons" : { "start" : 192613461, "end" : 192613529 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
-{ "exons" : { "start" : 192617056, "end" : 192617117 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
-{ "exons" : { "start" : 192627331, "end" : 192627497 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
-{ "exons" : { "start" : 192628468, "end" : 192629441 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
-{ "exons" : { "start" : 192605268, "end" : 192605447 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
-{ "exons" : { "start" : 192606720, "end" : 192606790 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
 { "exons" : { "start" : 192613461, "end" : 192613529 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
+{ "exons" : { "start" : 192617056, "end" : 192617117 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
 { "exons" : { "start" : 192617056, "end" : 192617117 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
+{ "exons" : { "start" : 192627331, "end" : 192627497 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
 { "exons" : { "start" : 192627331, "end" : 192627497 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
+{ "exons" : { "start" : 192628468, "end" : 192629441 }, "accession" : "NM_002927.4", "gene_id" : "6003" }
 { "exons" : { "start" : 192628468, "end" : 192629441 }, "accession" : "NM_144766.2", "gene_id" : "6003" }
+
+
+db.mrna.aggregate([ {$match:{gene_id:{$eq:"6003"}}}, {$unwind:"$exons"}, {$group: {_id: {gene_id:"$gene_id", "exonstart":"$exons.start", "exonend":"$exons.end"}, total:{$sum: 1 }}}, {$sort:{exonstart:1, exonend:1}} ])
+{ "_id" : { "gene_id" : "6003", "exonstart" : 192607294, "exonend" : 192607333 }, "total" : 1 }
+{ "_id" : { "gene_id" : "6003", "exonstart" : 192628468, "exonend" : 192629441 }, "total" : 2 }
+{ "_id" : { "gene_id" : "6003", "exonstart" : 192627331, "exonend" : 192627497 }, "total" : 2 }
+{ "_id" : { "gene_id" : "6003", "exonstart" : 192613461, "exonend" : 192613529 }, "total" : 2 }
+{ "_id" : { "gene_id" : "6003", "exonstart" : 192606720, "exonend" : 192606790 }, "total" : 2 }
+{ "_id" : { "gene_id" : "6003", "exonstart" : 192617056, "exonend" : 192617117 }, "total" : 2 }
+{ "_id" : { "gene_id" : "6003", "exonstart" : 192605268, "exonend" : 192605447 }, "total" : 2 }
 
 
 ##  how to create a collection using "insert"
