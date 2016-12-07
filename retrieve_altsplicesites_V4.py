@@ -16,15 +16,14 @@ import sys
 
 def get_altsplice(arg_gene, arg_print=''):
 
-    wrk_mrnafromtoexon = []  # make this available to the entire class
-
-    # define work fields for this def
     # create objects required to access MongoDB
     from pymongo import MongoClient
     client = MongoClient()
     db = client.chrome
     collect = db.mrna
 
+    # define work fields for this def
+    wrk_mrnafromtoexon = []   ### this will be returned!!!!
     wrk_dict_mrnafromtoexon = {} #used to track from/to positions and count
     wrk_tuple = ()  # tuple for "return"
     wrk_mrna_count = 0  # number/count of mRNA in gene
@@ -36,48 +35,44 @@ def get_altsplice(arg_gene, arg_print=''):
         if(arg_print == 'Y'):
             print('gcursor full row: ',g_row)
     # keep the following outside of the "for" loop, it's possible gcursor count could be zero
-    # (if an invalid gene accession# was passed in the argument)
+    # (i.e., if an invalid gene accession# was passed in the argument)
     if(arg_print == 'Y'):
         print('Number of mRNA associated with gene ',arg_gene,' is: ',wrk_mrna_count)
 
-    ## e.g., if the count is 3 there are 3 mRNA
-    ## Next, read aggregate by gene, "from" exon position, and "to" exon position
-    ## if row count grouped by from/to exon is less than the g_row count,
-    ## there is likely an alternative splice site
-    mcursor1 = collect.aggregate([ {"$match":{"gene_id":{"$eq": arg_gene}}}, {"$unwind":"$exons"}, {"$group": {"_id": {"gene_id":"$gene_id", "exonstart":"$exons.start", "exonend":"$exons.end"}, "total":{"$sum":1}}}, {"$sort":{"exonstart":1,"exonend":1}}])
-    for row1 in mcursor1:
+    ### if the row count is zero, skip the rest and return an empty list
+    ### otherwise continue to load list with tuples of info
+    if(wrk_mrna_count > 0):
+        ## Next, get aggregate by gene, "from" exon position, and "to" exon position
+        ## if row count grouped by from/to exon is less than the g_row count,
+        ## there is likely an alternative splice site
+        mcursor1 = collect.aggregate([ {"$match":{"gene_id":{"$eq": arg_gene}}}, {"$unwind":"$exons"}, {"$group": {"_id": {"gene_id":"$gene_id", "exonstart":"$exons.start", "exonend":"$exons.end"}, "total":{"$sum":1}}}, {"$sort":{"exonstart":1,"exonend":1}}])
+        for row1 in mcursor1:
+            if(arg_print == 'Y'):
+                print('full record row1: ', row1)
+            ## create temporary dictionary of from/to exon positions and count
+            wrk_dict_mrnafromtoexon[str(row1['_id']['exonstart']) + str(row1['_id']['exonend'])] = ('N' if(wrk_mrna_count == row1['total']) else 'Y')
+
+        ##  print out the dictionary created above
         if(arg_print == 'Y'):
-            print('full record row1: ', row1)
-        ## create temporary dictionary of from/to exon positions and count
-        wrk_dict_mrnafromtoexon[str(row1['_id']['exonstart']) + str(row1['_id']['exonend'])] = ('N' if(wrk_mrna_count == row1['total']) else 'Y')
+            print('** print dictionary: ', [x for x in wrk_dict_mrnafromtoexon])
 
-    #if(arg_print == 'Y'):
-        #print('** print list: ', [x for x in wrk_mrnafromtoexon])
-        #print('** print dictionary: ', [x for x in wrk_dict_mrnafromtoexon])
+        ## now retrieve each individual gene, mRNA, unwind exons' from/to positions to get a single row for each exon
+        mcursor2 = collect.aggregate([{'$match':{'gene_id':{'$eq':arg_gene}}} , {'$unwind':"$exons"}, {'$sort':{ "exons.start":1, "exons.end":1, 'accession':1}}, {'$project':{'_id':0,  'gene_id':1, 'accession':1, 'exons':1 }}])
+        for row2 in mcursor2:
+            if(arg_print == 'Y'):
+                print('full record row2: ', row2)
+            ## Build list of data to return, including "alternative splice (Y/N) flag"
+            ##  (did not have to create wrk_from and wrk_to, they're just for readability)
+            wrk_from = str(row2['exons']['start'])
+            wrk_to =   str(row2['exons']['end'])
+            wrk_tuple = (str(row2['accession']), str(row2['gene_id']), wrk_from, wrk_to, (wrk_dict_mrnafromtoexon[wrk_from + wrk_to]))
 
-    ## now retrieve each individual gene, mRNA, unwind exons' from/to positions to get a single row for each attribute
-    mcursor2 = collect.aggregate([{'$match':{'gene_id':{'$eq':arg_gene}}} , {'$unwind':"$exons"}, {'$sort':{ "exons.start":1, "exons.end":1, 'accession':1}}, {'$project':{'_id':0,  'gene_id':1, 'accession':1, 'exons':1 }}])
-    for row2 in mcursor2:
-        if(arg_print == 'Y'):
-            print('full record row2: ', row2)
-        ## Build list of data to return, including "alternative splice (Y/N) flag"
-        wrk_from = str(row2['exons']['start'])
-        wrk_to =   str(row2['exons']['end'])
-        wrk_tuple = (str(row2['accession']), str(row2['gene_id']), wrk_from, wrk_to, (wrk_dict_mrnafromtoexon[wrk_from + wrk_to]))
-
-        wrk_mrnafromtoexon.append(wrk_tuple)
-
-        if(arg_print == 'Y'):
-            print('print most recent tuple entry (mRNA, gene, from, to, altsplicesite(Y,N) ): ', wrk_mrnafromtoexon[-1])
+            wrk_mrnafromtoexon.append(wrk_tuple)
+            if(arg_print == 'Y'):
+                print('print most recent tuple entry (mRNA, gene, from, to, altsplicesite(Y,N) ): ', wrk_mrnafromtoexon[-1])
 
     return wrk_mrnafromtoexon
 
-    #def __str__(self):
-        #print("\n\nwithin __str__ ......")
-        #print("Gene accession# passed in as argument is: ", self.input_gene)
-        #print('Resulting/final tuples within a single main list is:')
-        #print(self.wrk_mrnafromtoexon)
-        #return("End of __str__  -------------------\n\n")
 
 #-------------------------------------------------------------------------------
 #### begin mainline
@@ -90,8 +85,10 @@ def get_altsplice(arg_gene, arg_print=''):
 ### if 2, print detailed info in __init__ and __str__
 ### if 3, write option 2, but to log file only (not to screen)
 
-if (__name__ == "__main__"):
+###  this can be used as either a module or standalone program,
+###  depending on where/how it's called
 
+if (__name__ == "__main__"):
     tmp_input_gene = ''
     tmp_input_print = ''
 
