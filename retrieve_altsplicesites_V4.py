@@ -23,9 +23,9 @@ def get_altsplice(arg_gene, arg_print=''):
     collect = db.mrna
 
     # define work fields for this def
-    wrk_mrnafromtoexon = []   ### this will be returned!!!!
-    wrk_dict_mrnafromtoexon = {} #used to track from/to positions and count
-    wrk_tuple = ()  # tuple for "return"
+    wrk_mrnafromtoexon = []   ### this will be returned to the calling program!!
+    wrk_dict_mrnafromtoexon = {}  #used to track mRNA from/to positions
+    wrk_tuple = ()  # tuples that go in wrk_mrnafromtoexon to "return"
     wrk_mrna_count = 0  # number/count of mRNA in gene
 
     ## gcursor should return a single row, which is the total number/count of mrna for a gene
@@ -40,7 +40,7 @@ def get_altsplice(arg_gene, arg_print=''):
         print('Number of mRNA associated with gene ',arg_gene,' is: ',wrk_mrna_count)
 
     ### if the row count is zero, skip the rest and return an empty list
-    ### otherwise continue to load list with tuples of info
+    ### otherwise continue to load list with tuples of each exon
     if(wrk_mrna_count > 0):
         ## Next, get aggregate by gene, "from" exon position, and "to" exon position
         ## if row count grouped by from/to exon is less than the g_row count,
@@ -49,7 +49,7 @@ def get_altsplice(arg_gene, arg_print=''):
         for row1 in mcursor1:
             if(arg_print == 'Y'):
                 print('full record row1: ', row1)
-            ## create temporary dictionary of from/to exon positions and count
+            ## create temporary dictionary of from/to exon positions
             wrk_dict_mrnafromtoexon[str(row1['_id']['exonstart']) + str(row1['_id']['exonend'])] = ('N' if(wrk_mrna_count == row1['total']) else 'Y')
 
         ##  print out the dictionary created above
@@ -62,7 +62,7 @@ def get_altsplice(arg_gene, arg_print=''):
             if(arg_print == 'Y'):
                 print('full record row2: ', row2)
             ## Build list of data to return, including "alternative splice (Y/N) flag"
-            ##  (did not have to create wrk_from and wrk_to, they're just for readability)
+            ##  (did not have to create wrk_from and wrk_to, they're just for ease of reading)
             wrk_from = str(row2['exons']['start'])
             wrk_to =   str(row2['exons']['end'])
             wrk_tuple = (str(row2['accession']), str(row2['gene_id']), wrk_from, wrk_to, (wrk_dict_mrnafromtoexon[wrk_from + wrk_to]))
