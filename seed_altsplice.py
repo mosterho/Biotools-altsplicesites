@@ -35,17 +35,18 @@ def get_data(arg_print=''):
             if(arg_print == 'Y'):
                 print("\nfirst loop: ",x,"\nreturn_list:  ",return_list)
 
-            # get tuple info from module that was called
+            # get tuple info from module (determines flag for alternative splice site)
             for y in return_list[:]:
                 if(arg_print == 'Y'):
-                    print(y[0],' ',y[1],' ', y[2],' ', y[3],' ',y[4])
+                    print('Return list/tuple ',y[0],' ',y[1],' ', y[2],' ', y[3],' ',y[4])
 
-                # retrieve whole mRNA collection row/document by gene_id
-                # (the initial aggregate in the first line only retrieved the gene_id)
-                readthis = collect.aggregate([ {"$match":{"gene_id":{"$eq":y[1]}}} ])
+                # retrieve whole mRNA collection document by gene_id, also
+                # unwind the exons to get multiple lines per gene and mRNA
+                # (for the first line of code, it was the initial aggregate only by gene_id)
+                readthis = collect.aggregate([ {"$match":{"gene_id":{"$eq":y[1]}}}, {"$unwind":"$exons"} ])
                 for z in readthis:
                     if(arg_print == 'Y'):
-                        print("\nsecond loop: ",z)
+                        print("\nsecond loop with unwind: ",z)
 
 
 #db.mrna.aggregate([{$unwind:"$exons"}])
