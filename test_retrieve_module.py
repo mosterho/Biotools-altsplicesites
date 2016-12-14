@@ -3,8 +3,7 @@
 ### Marty Osterhoudt
 
 import sys
-#import retrieve_altsplicesites as alt
-import retrieve_altsplicesites_V4 as alt
+import retrieve_altsplicesites as alt
 
 #-------------------------------------------------------------------------------
 #### begin mainline
