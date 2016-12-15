@@ -23,7 +23,7 @@
 
 import sys, retrieve_altsplicesites as alt
 
-def get_data(arg_gene='', arg_print=''):
+def get_data(arg_organism, arg_gene='', arg_print=''):
 
     # create objects required to access MongoDB
     from pymongo import MongoClient
@@ -34,13 +34,12 @@ def get_data(arg_gene='', arg_print=''):
 
     return_list = []
 
-    # 1. read mrna collection, group by gene and organism
+    # 1. read mrna collection, group by gene
     if(arg_gene == ''):
-        result = collect.aggregate([{"$group":{"_id":{"gid":"$gene_id", "org":"$organism"}}}])
+        result = collect.aggregate([{"$match":{"organism":arg_organism}}, {"$group":{"_id":{"gid":"$gene_id", "org":"$organism"}}}])
     else:
-        result = collect.aggregate([{"$match":{"gene_id":{"$eq":arg_gene}}}, {"$group":{"_id":{"gid":"$gene_id", "org":"$organism"}}}])
+        result = collect.aggregate([{"$match":{"organism":arg_organism, "gene_id":arg_gene}}, {"$group":{"_id":{"gid":"$gene_id", "org":"$organism"}}}])
     for x in result:
-
         # 2. retrieve alt splice site info for gene_id
         return_list = alt.get_altsplice(x['_id']['gid'])
         # if anything is returned, continue
@@ -55,12 +54,12 @@ def get_data(arg_gene='', arg_print=''):
 
                 # 4. retrieve all mRNA collection document info by gene_id, also
                 # unwind the exons to get multiple lines per gene and mRNA
-                readthis = collect.aggregate([ {"$match":{"gene_id":{"$eq":y[1]}}}, {"$unwind":"$exons"} ])
+                readthis = collect.aggregate([ {"$match":{"gene_id":str(y[1]), "accession":str(y[0]), "exons.start":int(y[2]), "exons.end":int(y[3])} }, {"$unwind":"$exons"} ])
                 for z in readthis:
                     if(arg_print == 'Y'):
                         print("\nReturn list/tuple second loop with unwind: ",z)
                     #5. now roll-up exons with appropriate value for alt splice flag
-
+                    #prev = collect_exons.insert({"gene_id":str(y[1]), "accession":str(y[0]), "exons_start":int(y[2]), "exons_end":int(y[3])})
 
 #db.mrna.aggregate([{$unwind:"$exons"}])
 #db.mrna.aggregate([{ $project:{"gid":"$gene_id", "acc":"$accession"}}])
@@ -74,13 +73,15 @@ def get_data(arg_gene='', arg_print=''):
 ### mainline
 #-------------------------------------------------------------------------
 
+tmp_organism = ''
 tmp_gene = ''
 tmp_input_print = ''
 if(len(sys.argv) > 1):
-    tmp_gene = sys.argv[1]
-    if(sys.argv[2] != 'Y'):
+    tmp_organism = sys.argv[1]
+    tmp_gene = sys.argv[2]
+    if(sys.argv[3] != 'Y'):
         tmp_input_print = ''
     else:
         tmp_input_print = 'Y'
 
-get_data(tmp_gene, tmp_input_print)
+get_data(tmp_organism, tmp_gene, tmp_input_print)
