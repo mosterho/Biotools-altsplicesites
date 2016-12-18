@@ -2,8 +2,9 @@
 # Create program to write alternative splice site collection.
 
 # arguments:
-# 1. gene_id: can enter a single gene_id, or pass in an empty string
-# 2. print flag: if "Y" will print debugging information
+# 1. organism (e.g., Homo sapiens)
+# 2. gene_id: can enter a single gene_id, or pass in an empty string
+# 3. print flag: if "Y" will print debugging information
 
 # process is as follows:
 # From the chrome database,
@@ -30,9 +31,10 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
     client = MongoClient()
     db = client.chrome
     collect = db.mrna
-    collect_exons = db.exons
+    collect_altsplice = db.altsplicesites
 
     return_list = []
+    switched_list = []
 
     # 1. read mrna collection, group by gene
     if(arg_gene == ''):
@@ -45,28 +47,29 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
         # if anything is returned, continue
         if(return_list):
             if(arg_print == 'Y'):
-                print("\nEntire tuple returned from module:  ",x,"\nreturn_list:  ",return_list)
+                print("\nEntire tuple returned from retrieve_altsplicesites module: ",x,"\nreturn_list:\n  ",return_list)
 
             # 3. get tuple info from module (determines flag for alternative splice site)
             for y in return_list[:]:
+                if(switched_list[y[1]][y[2]][y[3]][y[4]]):
+                    switched_list[y[1]][y[2]][y[3]][y[4]].append(y[0])
+                else:
+                    switched_list[y[1]][y[2]][y[3]][y[4]].append(y[0])
                 if(arg_print == 'Y'):
                     print('Return list/tuple from module ',y[0],' ',y[1],' ', y[2],' ', y[3],' ',y[4])
+                    print('Switched list', switched_list)
 
                 # 4. retrieve all mRNA collection document info by gene_id, also
                 # unwind the exons to get multiple lines per gene and mRNA
-                readthis = collect.aggregate([ {"$match":{"gene_id":str(y[1]), "accession":str(y[0]), "exons.start":int(y[2]), "exons.end":int(y[3])} }, {"$unwind":"$exons"} ])
+                ################readthis = collect.aggregate([ {"$match":{"gene_id":str(y[1]), "accession":str(y[0]), "exons.start":int(y[2]), "exons.end":int(y[3])} }, {"$unwind":"$exons"} ])
+                readthis = collect.find({"gene_id":str(y[1]), "accession":str(y[0]), "exons.start":int(y[2]), "exons.end":int(y[3])},{"_id":0, "gene_id":1, "accession":1, "exons.start":1, "exons.end":1})
                 for z in readthis:
                     if(arg_print == 'Y'):
-                        print("\nReturn list/tuple second loop with unwind: ",z)
-                    #5. now roll-up exons with appropriate value for alt splice flag
-                    #prev = collect_exons.insert({"gene_id":str(y[1]), "accession":str(y[0]), "exons_start":int(y[2]), "exons_end":int(y[3])})
+                        print("\nReturn list/tuple second loop: ",z)
+                        #print("\nReturn list/tuple second loop with unwind: ")
 
-#db.mrna.aggregate([{$unwind:"$exons"}])
-#db.mrna.aggregate([{ $project:{"gid":"$gene_id", "acc":"$accession"}}])
-#db.mrna.aggregate([ {$unwind:"$exons"}, {$project:{"gid":"$gene_id", "acc":"$accession", "diffexonsstart":"$exons.start", "diffexonend":"$exons.end"}}]).pretty()
-#db.mrna.aggregate([ {$unwind:"$exons"}, {$project:{gene_id:1, accession:1, "diffexonsstart":"$exons.start", "diffexonend":"$exons.end"}}]).pretty()
-#db.mrna.aggregate([ {$unwind:"$exons"}, {$project:{gene_id:1, accession:1, "diffexonstart":"$exons.start", "diffexonend":"$exons.end"}}, {$group:{_id:"$diffexonstart"}}  ]).pretty()
-#db.mrna.aggregate([ {$unwind:"$exons"}, {$project:{gene_id:1, accession:1, "diffexonstart":"$exons.start", "diffexonend":"$exons.end"}}, {$group:{_id:{diffes:'$diffexonstart', diffee:'$diffexonend'}, total:{$sum:1}}}  ]).pretty()
+                    #5. now roll-up and merge exons with appropriate value for alt splice flag
+                    #insert_confirm = collect_altsplice.insert({"gene_id":str(y[1]), "accession":str(y[0]), "exons_start":int(y[2]), "exons_end":int(y[3])})
 
 
 #-------------------------------------------------------------------------
