@@ -35,13 +35,13 @@ def purge_data(arg_organism, arg_gene='', arg_print=''):
     # 1. remove alternative splice site data, depending on arguments passed in
     if(arg_gene == ''):
         try:
-            collect_altsplice.deleteMany( { "organism" : arg_organism } );
+            collect_altsplice.remove( { "organism" : arg_organism } );
         except ValueError:
             if(arg_print == 'Y'):
                 print (errorMsg);
     else:
         try:
-            collect_altsplice.deleteMany( { "organism":arg_organism, "gene_id":arg_gene } );
+            collect_altsplice.remove( { "organism":arg_organism, "gene_id":arg_gene } );
         except ValueError:
             if(arg_print == 'Y'):
                 print (errorMsg);

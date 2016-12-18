@@ -15,7 +15,7 @@
 #    (will now have multiple rows/documents for each mRNA)
 # 5.
 #
-# create an "exons" collection.
+# create an "altsplicesites" collection.
 
 ### Marty Osterhoudt
 ### independent research project with Dr. Frees
@@ -38,7 +38,7 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
 
     # 1. read mrna collection, group by gene
     if(arg_gene == ''):
-        result = collect.aggregate([{"$match":{"organism":arg_organism}}, {"$group":{"_id":{"gid":"$gene_id", "org":"$organism"}}}])
+        result = collect.aggregate([{"$match":{"organism":arg_organism}},                     {"$group":{"_id":{"gid":"$gene_id", "org":"$organism"}}}])
     else:
         result = collect.aggregate([{"$match":{"organism":arg_organism, "gene_id":arg_gene}}, {"$group":{"_id":{"gid":"$gene_id", "org":"$organism"}}}])
     for x in result:
