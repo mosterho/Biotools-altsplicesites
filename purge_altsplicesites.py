@@ -30,18 +30,18 @@ def purge_data(arg_organism, arg_gene='', arg_print=''):
     from pymongo import MongoClient
     client = MongoClient()
     db = client.chrome
-    collect_altsplice = db.altsplicesites
+    collect_exons = db.exons
 
     # 1. remove alternative splice site data, depending on arguments passed in
     if(arg_gene == ''):
         try:
-            collect_altsplice.remove( { "organism" : arg_organism } );
+            collect_exons.remove( { "organism" : arg_organism } );
         except ValueError:
             if(arg_print == 'Y'):
                 print (errorMsg);
     else:
         try:
-            collect_altsplice.remove( { "organism":arg_organism, "gene_id":arg_gene } );
+            collect_exons.remove( { "organism":arg_organism, "gene_id":arg_gene } );
         except ValueError:
             if(arg_print == 'Y'):
                 print (errorMsg);
@@ -56,10 +56,10 @@ tmp_gene = ''
 tmp_input_print = ''
 if(len(sys.argv) > 1):
     tmp_organism = sys.argv[1]
+if(len(sys.argv) > 2):
     tmp_gene = sys.argv[2]
-    if(sys.argv[3] != 'Y'):
-        tmp_input_print = ''
-    else:
+if(len(sys.argv) > 3):
+    if(sys.argv[3] == 'Y'):
         tmp_input_print = 'Y'
 
 purge_data(tmp_organism, tmp_gene, tmp_input_print)
