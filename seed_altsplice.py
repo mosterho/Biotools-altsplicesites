@@ -68,15 +68,14 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
                     print("Key ", (str(y[1]) + str(y[2]) + str(y[3]) + str(y[4])), " is in dict_exons: ", dict_exons[(str(y[1]) + str(y[2]) + str(y[3]) + str(y[4]))])
 
                 # 4. retrieve all mRNA collection document info by gene_id
-                ##readthis = collect_mrna.find({"gene_id":str(y[1]), "accession":str(y[0]), "exons.start":int(y[2]), "exons.end":int(y[3])},{"_id":0, "gene_id":1, "accession":1, "exons.start":1, "exons.end":1, "organism":1, })
-                readthis = collect_mrna.find({"gene_id":str(y[1]), "accession":str(y[0]), "exons.start":int(y[2]), "exons.end":int(y[3])},{"_id":0 })
+                readthis = collect_mrna.find({"gene_id":str(y[1]), "accession":str(y[0]), "exons.start":int(y[2]), "exons.end":int(y[3])},{"_id":0, "organism":1, "orientation":1, "build":1, "chrom":1 })
 
                 for z in readthis:
                     if(arg_print == 'Y'):
-                        print("Within z loop, Return list/tuple second loop: ",z)
+                        print("Within z loop, list/tuple of second loop: ",z)
 
                     #5. now write the full "exons" collection document
-                    insert_confirm = collect_exons.insert({"gene_id":str(y[1]), "accession":str(y[0]), "exons_start":int(y[2]), "exons_end":int(y[3]), "mRNA":dict_exons[(str(y[1]) + str(y[2]) + str(y[3]) + str(y[4]))]})
+                    insert_confirm = collect_exons.insert({"gene_id":str(y[1]), "exons_start":int(y[2]), "exons_end":int(y[3]), "mRNA":dict_exons[(str(y[1]) + str(y[2]) + str(y[3]) + str(y[4]))], "organism":z['organism'], "orientation":z['orientation'], "build":z['build'], "chrom":z['chrom'], "alternative_spliced":str(y[4]) })
 
 
 #-------------------------------------------------------------------------
