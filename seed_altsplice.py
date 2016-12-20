@@ -3,12 +3,12 @@
 
 # arguments:
 # 1. organism (e.g., Homo sapiens)
-# 2. gene_id: can enter a single gene_id, or pass in an empty string
-# 3. print flag: if "Y" will print debugging information
+# 2. gene_id: (optional) can enter a single gene_id, or pass in an empty string
+# 3. print flag: (optional) if "Y" will print debugging information
 
 # process is as follows:
 # From the chrome database,
-# 1. read the gene collection, group by gene_id
+# 1. read the mrna collection, group by gene_id
 # 2. call the "retrieve_altsplicesites" module using gene_id
 # 3. load dictionary based on information returned from module call,
 #    key:from/to exon, alt splice flag  value: mRNA accession#s
@@ -33,9 +33,9 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
     collect_mrna = db.mrna
     collect_exons = db.exons
 
-    return_list = []
+    return_list = []  # list returned from "retrieve_altsplicesites" module call
     dict_exons = {}  # data structure key: from/to exons, flag, value: tuple of mRNA accession#s
-    wrk_mrna = []  # tuple of mRNA used as dict_exons values
+    wrk_mrna = []  # list of mRNA used as dict_exons values
 
     # 1. read mrna collection, group by organism and (optionally) gene
     #    This just sets up which organism and gene should be included

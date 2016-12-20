@@ -5,7 +5,7 @@
 ### are different and suggest an alternative splice site.
 ### return the result as tuples within an overall list that includes
 ### the accession#, mRNA, from/to exon positions, and
-### alternative splice site flag (Y/'')
+### alternative splice site flag (Y/N)
 
 ### Marty Osterhoudt
 ### independent research project with Dr. Frees
@@ -25,7 +25,7 @@ def get_altsplice(arg_gene, arg_print=''):
     # define work fields for this def
     wrk_mrnafromtoexon = []   ### this will be returned to the calling program!!
     wrk_dict_mrnafromtoexon = {}  #used to track mRNA from/to positions
-    wrk_tuple = ()  # tuples that go in wrk_mrnafromtoexon to "return"
+    wrk_tuple = ()  # tuples that go inside wrk_mrnafromtoexon to return to calling program
     wrk_mrna_count = 0  # number/count of mRNA in gene
 
     ## gcursor should return a single row, which is the total number/count of mrna for a gene
@@ -81,9 +81,8 @@ def get_altsplice(arg_gene, arg_print=''):
 
 ### for coding, consider adding the following for debugging:
 ### if 0, do not print any info
-### if 1, print info in __str__ only
-### if 2, print detailed info in functions
-### if 3, similiar to option 2, but to log file only (not to screen)
+### if 1, print detailed info in functions
+### if 2, similiar to option 1, but to log file only (not to screen)
 
 ###  this can be used as either a module or standalone program,
 ###  depending on where/how it's called
