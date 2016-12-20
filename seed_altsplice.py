@@ -10,12 +10,12 @@
 # From the chrome database,
 # 1. read the gene collection, group by gene_id
 # 2. call the "retrieve_altsplicesites" module using gene_id
-# 3. loop though returned info to obtain gene
-# 4. retrieve detailed mRNA collection info and unwind the exon data
-#    (will now have multiple rows/documents for each mRNA)
-# 5.
+# 3. load dictionary based on information returned from module call,
+#    key:from/to exon, alt splice flag  value: mRNA accession#s
+# 4. retrieve detailed mRNA collection info
+# 5. combine subet of mRNA info with dictionary info, INSERT to exons collection
+#    (mRNA accession numbers now in list)
 #
-# create an "altsplicesites" collection.
 
 ### Marty Osterhoudt
 ### independent research project with Dr. Frees
@@ -52,7 +52,7 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
             if(arg_print == 'Y'):
                 print("\nEntire tuple returned from retrieve_altsplicesites module: ",x,"\nreturn_list:  ",return_list)
 
-            # 3. get info from module (determines flag for alternative splice site)
+            # 3. load dictionary based on information returned from module call
             for y in return_list:
                 # check if entry exists in dict_exons,
                 # if it does, retrieve the value
@@ -67,9 +67,8 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
                     print('Individual read of list/tuple from module: ',y[0],' ',y[1],' ', y[2],' ', y[3],' ',y[4])
                     print("Key ", (str(y[1]) + str(y[2]) + str(y[3]) + str(y[4])), " is in dict_exons: ", dict_exons[(str(y[1]) + str(y[2]) + str(y[3]) + str(y[4]))])
 
-                # 4. retrieve all mRNA collection document info by gene_id
+                # 4. retrieve mRNA collection document info by gene_id
                 readthis = collect_mrna.find({"gene_id":str(y[1]), "accession":str(y[0]), "exons.start":int(y[2]), "exons.end":int(y[3])},{"_id":0, "organism":1, "orientation":1, "build":1, "chrom":1 })
-
                 for z in readthis:
                     if(arg_print == 'Y'):
                         print("Within z loop, list/tuple of second loop: ",z)
