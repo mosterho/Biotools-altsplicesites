@@ -57,19 +57,21 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
             dict_exons = {}  # reset dictionary entries if multiple genes are initially read step #1
             for y in return_list:
                 # check if entry exists in dict_exons,
-                # if it does, retrieve the value, otherwise initialize wrk_mrna list
-                # Then append current mRNA to value
+                # if it does, retrieve the value and place in wrk_mrna,
+                #    otherwise initialize wrk_mrna list
+                # Then append current mRNA to wrk_mrna and update the key's value
                 # NOTE: use '-' as a separator between key components
-                if((str(y[1]) +'-'+ str(y[2]) +'-'+ str(y[3]) +'-'+ str(y[4])) in dict_exons):
-                    wrk_mrna = dict_exons[(str(y[1]) +'-'+ str(y[2]) +'-'+ str(y[3]) +'-'+ str(y[4]))]
+                tmp_key = str(y[1]) +'-'+ str(y[2]) +'-'+ str(y[3]) +'-'+ str(y[4])
+                if(tmp_key in dict_exons):
+                    wrk_mrna = dict_exons[tmp_key]
                 else:
                     wrk_mrna = []
                 wrk_mrna.append(y[0])
-                dict_exons[(str(y[1]) +'-'+ str(y[2]) +'-'+ str(y[3]) +'-'+ str(y[4]))] = wrk_mrna
+                dict_exons[tmp_key] = wrk_mrna
                 if(arg_print == 'Y'):
                     print('Individual read of list/tuple from module: ',y[0],' ',y[1],' ', y[2],' ', y[3],' ',y[4])
-                    print("Key ", (str(y[1]) +'-'+ str(y[2]) +'-'+ str(y[3]) +'-'+ str(y[4])), " is in dict_exons, value is: ", dict_exons[(str(y[1]) +'-'+ str(y[2]) +'-'+ str(y[3]) +'-'+ str(y[4]))])
-
+                    print("Key ", tmp_key, " is in dict_exons, value is: ", dict_exons[tmp_key])
+            # once dict_exons is fully loaded, print debugging info
             if(arg_print == 'Y'):
                 print("\nAfter dictionary is built, print the following:")
                 print("Summarized wrk_mrna: ", wrk_mrna)
@@ -77,6 +79,7 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
                 print("Summarized Values in dict_exons: ", dict_exons.values())
 
             # 4. retrieve mRNA collection document info, summarized by gene_id, organism, etc.
+            #  This aggregate method call should return only one row
             readthis = collect_mrna.aggregate([ {"$match":{"gene_id":x['_id']['gid'], "organism":x['_id']['org'] }}, {"$group":{"_id":{"gene_id":"$gene_id", "organism":"$organism", "orientation":"$orientation", "build":"$build", "chrom":"$chrom" }}}  ])
             tmp_counter = 0
             for z in readthis:
@@ -84,8 +87,9 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
                 if(arg_print == 'Y'):
                     print("Within z loop, list/tuple of second loop: ",z, "\ntmp_counter: ",tmp_counter," should only be 1  !!!!!!")
 
-                #5. now write the full "exons" collection document
-                #   loop thru dictionary keys and values, match-up with previous "readthis" aggregate
+                #5. write the full "exons" collection document
+                #   loop thru dictionary keys and values, match-up with previous
+                #   "readthis" aggregate in Step #4 
                 for k in dict_exons:
                     # parse out the '-' used as a separator between key fields
                     wk_splitkey = k.split('-')
