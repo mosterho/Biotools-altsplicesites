@@ -1,6 +1,29 @@
-Biotools_marty
+#Biotools: Marty Osterhoudt's contribution to Dr. Bagga and Dr. Frees' Bioinformatics project
+Fall semester, 2016, Ramapo College of NJ
 
-This shows the progression I've made in learning MongoDB
+Biotools is a joint project of Ramapo College of NJ professors Dr. Frees and Dr. Bagga (convener of the Bioinformatics program). Throughout the duration of the project, contributions were made not only by Dr. Frees, but over the course of a couple semesters by three of my fellow, very talented peers/students.
+
+The existing project currently consists of a single MongoDB database "chrome" with several collections. These collections include "alignments", "gene", "mrna", "seedlog", and "seq". My contribution to the project was to create a collection of alternative splice sites named "exons".
+
+##The main objectives of my contribution to the project were to:
+* define the attributes of a new collection "exons", similar to the "mrna" collection, but more conducive to finding alternative splice sites;
+* create a Python3 module that can retrieve "mrna" data, including a "alternative splice flag Y/N";
+* create a Python3 module that reads the "mrna" data, calls the module above, and inserts data into the new "exons" collection.
+
+##There were several learning objectives/requirements/accomplishments, including:
+* Create a Linux environment to house my portion of the project;
+* Follow the instructions to successfully install the current version of Biotools;
+* Utilize Github to share my contributions ("exons" collection, programs, etc.);
+* Update existing documentation where necessary;
+* Keep Dr. Frees apprised of my progress with (minimum) weekly status updates, either in-person or email.
+
+##The actual steps taken were as follows:
+* Meet with Dr. Frees for a "kickoff" to the semester;
+*
+
+
+-----------------------------------------
+The following is an ad hoc "diary" of the progression I've made in learning MongoDB
 
 in MongoDB, start on terminal command line:
 
