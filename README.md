@@ -1,23 +1,23 @@
-#Biotools/Alternative Splice Sites: Marty Osterhoudt's contribution to Dr. Bagga and Dr. Frees' Bioinformatics project
-##Fall semester, 2016, Ramapo College of NJ
+##Biotools/Alternative Splice Sites: Marty Osterhoudt's contribution to Dr. Bagga and Dr. Frees' Bioinformatics project
+###Fall semester, 2016, Ramapo College of NJ
 
 **Biotools** is a project of Ramapo College of NJ professors Dr. Frees and Dr. Bagga (convener of the Bioinformatics program). Throughout the duration of the project, contributions were made by three of my fellow students over the course of a couple semesters.
 
 The existing project currently consists of a single MongoDB database "chrome" with several collections. These collections include "alignments", "gene", "mrna", "seedlog", and "seq". My contribution to the project was to create a collection of alternative splice sites named "exons".
 
-##The deliverables for this portion of the project:
+###The deliverables for this portion of the project:
 * The definition for the new "exon" collection was created by Dr. Frees. The attributes are similar to the "mrna" collection, but more conducive to finding alternative splice sites;
 * create a Python3 module that can retrieve "mrna" data, including an "alternative splice flag Y/N", and return the values to the calling program;
 * create a Python3 module that reads the "mrna" data, calls the module above, and inserts data into the new "exons" collection.
 
-##Learning objectives/requirements:
+###Learning objectives/requirements:
 * Create a Linux environment to house my portion of the project;
 * Follow the instructions to successfully install the current version of Biotools in the Linux environment;
 * Utilize Github to share my contributions ("exons" collection, programs, etc.);
 * Update existing documentation where necessary;
 * Keep Dr. Frees apprised of my progress with weekly status updates (minimum), either in-person or email.
 
-##The steps taken during the project:
+###The steps taken during the project:
 * Meet with Dr. Frees for a "kickoff" to the semester;
 * Create a VMware guest "Mint64bit01" on my personal computer;
 * Create my own repository on Github;
@@ -40,7 +40,7 @@ The existing project currently consists of a single MongoDB database "chrome" wi
 * Found bug in "seed_altsplice.py" (was writing too many documents for each mrna), fixed.
 * Continuous debugging and updates to documentation
 
-##Examples of running programs
+###Examples of running programs
 The following screen capture shows the result of calling the "retrieve_altsplicesite.py" module.
 
 ![screen cap of retrieving alternative splice site data](/docs/retrieve_altsplicesite.jpg)
@@ -50,9 +50,13 @@ The following two screen captures shows the result of calling the "seed_altsplic
 ![screen cap of the seed process for the "exons" collection](/docs/exons_seed1.jpg)
 ![screen cap of the seed process for the "exons" collection](/docs/exons_seed2.jpg)
 
+The following screen cap shows a simple Mongo shell db.exons.find() commands
 
+![screen cap of the seed process for the "exons" collection](/docs/exonsfind.jpg)
 
 ---
+###Examples of MongDB shell commands
+
 The following is an ad hoc "diary" of the various commands I ran while learning MongoDB
 
 in MongoDB, start on terminal command line:
