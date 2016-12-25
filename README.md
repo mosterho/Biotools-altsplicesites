@@ -9,6 +9,9 @@ The existing project currently consists of a single MongoDB database "chrome" wi
 * The definition for the new "exon" collection was created by Dr. Frees. The attributes are similar to the "mrna" collection, but more conducive to finding alternative splice sites;
 * create a Python3 module that can retrieve "mrna" data, including an "alternative splice flag Y/N", and return the values to the calling program;
 * create a Python3 module that reads the "mrna" data, calls the module above, and inserts data into the new "exons" collection.
+* two additional modules were created that were not part of the original requirements:
+  * Python3 module to test the "retrieve" module
+  * Python3 module that will delete documents, arguments to the module include organism and (optionally) geneid.
 
 ###Learning objectives/requirements:
 * Create a Linux environment to house my portion of the project;
@@ -45,7 +48,7 @@ The following screen capture shows the result of calling the "retrieve_altsplice
 
 ![screen cap of retrieving alternative splice site data](/docs/retrieve_altsplicesite.jpg)
 
-The following two screen captures shows the result of calling the "seed_altsplice.py" module, but for one gene. (needed two screen caps due to the size of the output)
+The following two screen captures shows the result of calling the "seed_altsplice.py" module, but for one gene. (needed two screen caps due to the size of the output). The option to print the results of seeding an entire species is available (pass in "Y" argument), but not recommended due to the amount of output. Runtime to generate the entire *Homo sapiens* "exons" collection is about 3 minutes.
 
 ![screen cap of the seed process for the "exons" collection](/docs/exons_seed1.jpg)
 ![screen cap of the seed process for the "exons" collection](/docs/exons_seed2.jpg)
@@ -59,7 +62,7 @@ The following screen cap shows a simple Mongo shell db.exons.find() commands
 
 The following is an ad hoc "diary" of the various commands I ran while learning MongoDB
 
-in MongoDB, start on terminal command line:
+in MongoDB shell:
 
 `db.mrna.find({}, {accession:1})  ## need empty set {} to include all rows, but just project the accession number
 db.mrna.find({}, {accession:1,gene_id:1, _id:0}).sort({accession:1})  
