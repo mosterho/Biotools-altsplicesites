@@ -1,5 +1,5 @@
 ##Biotools/Alternative Splice Sites: Marty Osterhoudt's contribution to Dr. Bagga and Dr. Frees' Bioinformatics project
-###Fall semester, 2016, Ramapo College of NJ
+###Fall semester 2016, Ramapo College of NJ
 
 **Biotools** is a project of Ramapo College of NJ professors Dr. Frees and Dr. Bagga (convener of the Bioinformatics program). Throughout the duration of the project, contributions were made by three of my fellow students over the course of a couple semesters.
 
@@ -17,6 +17,8 @@ The existing project currently consists of a single MongoDB database "chrome" wi
 * Create a Linux environment to house my portion of the project;
 * Follow the instructions to successfully install the current version of Biotools in the Linux environment;
 * Utilize Github to share my contributions ("exons" collection, programs, etc.);
+* Learn MongoDB database commands and methods;
+* Increase knowledge of Python programming;
 * Update existing documentation where necessary;
 * Keep Dr. Frees apprised of my progress with weekly status updates (minimum), either in-person or email.
 
@@ -24,15 +26,17 @@ The existing project currently consists of a single MongoDB database "chrome" wi
 * Meet with Dr. Frees for a "kickoff" to the semester;
 * Create a VMware guest "Mint64bit01" on my personal computer;
 * Create my own repository on Github;
+* Evaluate several programs (fat clients) that work with Github;
+  * Decided on "[GitKraken](https://www.gitkraken.com/)" as the best choice for Ubuntu/Mint;
 * Follow the instructions and install the main components of the Biotools (note: please see the results of each step of the installation process below);
 * Document each step taken, noting where the steps did not work (previous installs were performed on Windows and Apple);
 * Consider using dbSNP and EST databases from NCBI, elected to use existing mrna collection;
 * Pseudocode was written that describes how an alternative splice splice site could be determined from the mrna collection:
 
-  1. Allow a single gene passed in as an argument, along with the ability to print debugging information;
-  2. read mrna collection, retrieve gene#, mrna accession#, and individual exon beginning and ending positions;
-  3. rearrange the data collected for each mRNA, gene, exon from position, exon to position, and altsplicesite(Y,N), using count of each start/end position to determine if an alternative splice site;
-  4. return the information as tuples within a list.
+1. Allow a single gene passed in as an argument, along with the ability to print debugging information;
+2. read mrna collection, retrieve gene#, mrna accession#, and individual exon beginning and ending positions;
+3. rearrange the data collected for each mRNA, gene, exon from position, exon to position, and altsplicesite(Y,N), using count of each start/end position to determine if an alternative splice site;
+4. return the information as tuples within a list.
 
 * Go through MongoDB website, observe examples;
 * Create a series of trial and error steps of learning MongoDB using the mrna collection;
@@ -167,8 +171,16 @@ db.mrna.aggregate([ {$match:{gene_id:{$eq:"6003"}}}, {$unwind:"$exons"}, {$group
 { "_id" : { "gene_id" : "6003", "exonstart" : 192617056, "exonend" : 192617117 }, "total" : 2 }
 { "_id" : { "gene_id" : "6003", "exonstart" : 192605268, "exonend" : 192605447 }, "total" : 2 }
 
-
+---
 how to create a collection using "insert"
 db.altsplicesitestest.insert({start: 0, end: 9999, accession:"NM_999999", gene_id:"9999", organism:"homo Sapiens", build:"37", altsplicesiteYN: "N"})
 db.altsplicesitestest.find()
+
+---
+Join the mrna and exons collections:
+
+db.mrna.aggregate([{$lookup:{from:"exons", localField:"gene_id", foreignField:"gene_id", as:"results"}}])
+db.mrna.aggregate([{$match:{gene_id:"820"}},{$lookup:{from:"exons", localField:"gene_id", foreignField:"gene_id", as:"results"}}])
+
+
 `
