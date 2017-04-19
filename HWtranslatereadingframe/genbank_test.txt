@@ -1,0 +1,5 @@
+
+ORIGIN
+        1 ccggcctaaccaatagccccccttaaaa
+//
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
