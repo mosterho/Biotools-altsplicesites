@@ -1,0 +1,142 @@
+LOCUS       BC065175                2468 bp    mRNA    linear   ROD 09-JUN-2008
+DEFINITION  Mus musculus alkaline phosphatase, liver/bone/kidney, mRNA (cDNA
+            clone MGC:90091 IMAGE:6807509), complete cds.
+ACCESSION   BC065175
+VERSION     BC065175.1  GI:40787773
+KEYWORDS    MGC.
+SOURCE      Mus musculus (house mouse)
+  ORGANISM  Mus musculus
+            Eukaryota; Metazoa; Chordata; Craniata; Vertebrata; Euteleostomi;
+            Mammalia; Eutheria; Euarchontoglires; Glires; Rodentia;
+            Sciurognathi; Muroidea; Muridae; Murinae; Mus; Mus.
+REFERENCE   1  (bases 1 to 2468)
+  AUTHORS   Strausberg,R.L., Feingold,E.A., Grouse,L.H., Derge,J.G.,
+            Klausner,R.D., Collins,F.S., Wagner,L., Shenmen,C.M., Schuler,G.D.,
+            Altschul,S.F., Zeeberg,B., Buetow,K.H., Schaefer,C.F., Bhat,N.K.,
+            Hopkins,R.F., Jordan,H., Moore,T., Max,S.I., Wang,J., Hsieh,F.,
+            Diatchenko,L., Marusina,K., Farmer,A.A., Rubin,G.M., Hong,L.,
+            Stapleton,M., Soares,M.B., Bonaldo,M.F., Casavant,T.L.,
+            Scheetz,T.E., Brownstein,M.J., Usdin,T.B., Toshiyuki,S.,
+            Carninci,P., Prange,C., Raha,S.S., Loquellano,N.A., Peters,G.J.,
+            Abramson,R.D., Mullahy,S.J., Bosak,S.A., McEwan,P.J.,
+            McKernan,K.J., Malek,J.A., Gunaratne,P.H., Richards,S.,
+            Worley,K.C., Hale,S., Garcia,A.M., Gay,L.J., Hulyk,S.W.,
+            Villalon,D.K., Muzny,D.M., Sodergren,E.J., Lu,X., Gibbs,R.A.,
+            Fahey,J., Helton,E., Ketteman,M., Madan,A., Rodrigues,S.,
+            Sanchez,A., Whiting,M., Madan,A., Young,A.C., Shevchenko,Y.,
+            Bouffard,G.G., Blakesley,R.W., Touchman,J.W., Green,E.D.,
+            Dickson,M.C., Rodriguez,A.C., Grimwood,J., Schmutz,J., Myers,R.M.,
+            Butterfield,Y.S., Krzywinski,M.I., Skalska,U., Smailus,D.E.,
+            Schnerch,A., Schein,J.E., Jones,S.J. and Marra,M.A.
+  CONSRTM   Mammalian Gene Collection Program Team
+  TITLE     Generation and initial analysis of more than 15,000 full-length
+            human and mouse cDNA sequences
+  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 99 (26), 16899-16903 (2002)
+   PUBMED   12477932
+REFERENCE   2  (bases 1 to 2468)
+  CONSRTM   NIH MGC Project
+  TITLE     Direct Submission
+  JOURNAL   Submitted (08-JAN-2004) National Institutes of Health, Mammalian
+            Gene Collection (MGC), Bethesda, MD 20892-2590, USA
+  REMARK    NIH-MGC Project URL: http://mgc.nci.nih.gov
+COMMENT     Contact: MGC help desk
+            Email: cgapbs-r@mail.nih.gov
+            Tissue Procurement: Dr. Jim Lin, University of Iowa
+            cDNA Library Preparation: M. Bento Soares, University of Iowa
+            cDNA Library Arrayed by: The I.M.A.G.E. Consortium (LLNL)
+            DNA Sequencing by: University of Iowa, Dr. M. Bento Soares and Dr.
+            Thomas L. Casavant.
+            Web site: http://genome.uiowa.edu
+            Contact: bento-soares@uiowa.edu; tom-casavant@uiowa.edu
+            Bonaldo,M.F., Akabogu,I.,  Bair,T., Bair,J., Crouch,K., Davis,A.,
+            Fishler,K., Keppel,C., Kucaba,T., Lebeck,M., Melo,A., Schaefer,K.,
+            Scheetz,T., Smith,C., Snir,E., Tack,D., Trout,K., Walters,J.,
+            Casavant,T., Soares,M.B.
+            
+            Clone distribution: MGC clone distribution information can be found
+            through the I.M.A.G.E. Consortium/LLNL at: http://image.llnl.gov
+            Series: IRAV Plate: 129 Row: c Column: 2.
+FEATURES             Location/Qualifiers
+     source          1..2468
+                     /organism="Mus musculus"
+                     /mol_type="mRNA"
+                     /strain="C57BL/6"
+                     /db_xref="taxon:10090"
+                     /clone="MGC:90091 IMAGE:6807509"
+                     /tissue_type="Brain, pool of enriched mouse brain tissues
+                     from 13.5,14.5,16.5 and 17.5 dpc"
+                     /clone_lib="NIH_BMAP_FR0"
+                     /lab_host="DH10B"
+                     /note="Vector: pYX-ASC"
+     gene            1..2468
+                     /gene="Alpl"
+                     /gene_synonym="AP-TNAP"
+                     /gene_synonym="TNAP"
+                     /gene_synonym="TNSALP"
+                     /db_xref="GeneID:11647"
+                     /db_xref="MGI:87983"
+     CDS             167..1741
+                     /gene="Alpl"
+                     /gene_synonym="AP-TNAP"
+                     /gene_synonym="TNAP"
+                     /gene_synonym="TNSALP"
+                     /codon_start=1
+                     /product="alkaline phosphatase, liver/bone/kidney"
+                     /protein_id="AAH65175.1"
+                     /db_xref="GI:40787774"
+                     /db_xref="GeneID:11647"
+                     /db_xref="MGI:87983"
+                     /translation="MISPFLVLAIGTCLTNSFVPEKERDPSYWRQQAQETLKNALKLQ
+                     KLNTNVAKNVIMFLGDGMGVSTVTAARILKGQLHHNTGEETRLEMDKFPFVALSKTYN
+                     TNAQVPDSAGTATAYLCGVKANEGTVGVSAATERTRCNTTQGNEVTSILRWAKDAGKS
+                     VGIVTTTRVNHATPSAAYAHSADRDWYSDNEMPPEALSQGCKDIAYQLMHNIKDIDVI
+                     MGGGRKYMYPKNRTDVEYELDEKARGTRLDGLDLISIWKSFKPRHKHSHYVWNRTELL
+                     ALDPSRVDYLLGLFEPGDMQYELNRNNLTDPSLSEMVEVALRILTKNLKGFFLLVEGG
+                     RIDHGHHEGKAKQALHEAVEMDQAIGKAGAMTSQKDTLTVVTADHSHVFTFGGYTPRG
+                     NSIFGLAPMVSDTDKKPFTAILYGNGPGYKVVDGERENVSMVDYAHNNYQAQSAVPLR
+                     HETHGGEDVAVFAKGPMAHLLHGVHEQNYIPHVMAYASCIGANLDHCAWAGSGSAPSP
+                     GALLLPLAVLSLRTLF"
+ORIGIN      
+        1 cgccactgcg ctccttaggg ctgccgctcg cgagccggaa cagaccctcc ccacgagtgc
+       61 ctgcaggatc ggaacgtcaa ttaacgtcaa ttaacatctg acgctgcccc cccccccctc
+      121 ttcccaccat ctgggctcca gcgagggacg aatctcaggg tacaccatga tctcaccatt
+      181 tttagtactg gccatcggca cctgccttac caactctttt gtgccagaga aagagagaga
+      241 ccccagttac tggcgacagc aagcccaaga gaccttgaaa aatgccctga aactccaaaa
+      301 gctcaacacc aatgtagcca agaatgtcat catgttcctg ggagatggta tgggcgtctc
+      361 cacagtaacc gctgcccgaa tccttaaggg ccagctacac cacaacacgg gcgaggagac
+      421 ccggctggag atggacaaat tcccctttgt ggccctctcc aagacatata acaccaacgc
+      481 tcaggtccct gacagcgcgg gcactgccac tgcctacttg tgtggcgtga aggccaacga
+      541 gggcacagtg ggagtgagcg cagccacaga gcgcacgcga tgcaacacca ctcagggcaa
+      601 tgaggtcaca tccatcctgc gctgggccaa ggatgctggg aagtccgtgg gcattgtgac
+      661 taccactcgg gtgaaccacg ccacacccag tgcagcctac gcacactcgg ccgatcggga
+      721 ctggtactcg gataacgaga tgccaccaga ggctctgagc cagggctgca aggacatcgc
+      781 atatcagcta atgcacaata tcaaggatat cgacgtgatc atgggtggcg gccggaaata
+      841 catgtacccg aagaacagaa ctgatgtgga atacgaactg gatgagaagg ccaggggtac
+      901 aaggctagat ggcctggatc tcatcagtat ttggaagagc tttaaaccca gacacaagca
+      961 ttcccactat gtctggaacc gcactgaact gctggccctt gacccctcca gggtggacta
+     1021 cctcttaggt ctctttgagc ccggggacat gcagtatgaa ttgaatcgga acaacctgac
+     1081 tgacccttcg ctctccgaga tggtggaggt ggccctccgg atcctgacca aaaacctcaa
+     1141 aggcttcttc ttgctggtgg aaggaggcag gattgaccac ggacatcatg agggtaaggc
+     1201 caagcaggct ctgcatgaag cagtggagat ggaccaggcc attggcaagg caggcgccat
+     1261 gacatcccag aaagacacct tgactgtggt tactgctgat cattcccacg ttttcacatt
+     1321 cggtggatac accccccggg gcaactccat ctttggtctg gctcccatgg tgagcgacac
+     1381 ggacaagaag cccttcacgg ccatcctata tggtaacggg cctggctaca aggtggtgga
+     1441 cggtgaacgg gaaaatgtct ccatggtaga ttacgctcac aacaactacc aggcccagtc
+     1501 cgctgttccc ctgcgccatg agacccacgg tggagaagac gtggcggtct ttgccaaggg
+     1561 cccgatggca cacctgcttc acggcgtcca tgagcagaac tacattcccc atgtgatggc
+     1621 gtatgcctcc tgcattgggg ccaaccttga ccactgtgcc tgggccggct ctgggagcgc
+     1681 accctcccca ggggccctgc tgcttccact ggctgtgctc tccctacgca ccctgttctg
+     1741 agggtgcagg tcccacaagc ccgcaatgga cagccagctc ccctcctttt gtggcccacc
+     1801 accgggcagc ccacactcaa gggagaggtc caggcaactt ccagcaggaa cagaagttcg
+     1861 ctatctgcct tgcctgtatc tggaatcctc catgggccag attcctggct ctgcctttat
+     1921 tccctagtta ttgccctttg gccagcaggt ttctctcttg ggcaggcaag acacagactg
+     1981 cacagattcc caaagcacct tatttttcta ccaaatatat tctccagacc ctgcaacctc
+     2041 catggaacat tccagatctg accttctctc ctccatccct tcccttccct ctggaacact
+     2101 gggccccata gtcacggcca gtcctcaagc ccaaccctcc ctggggggaa gaccaggtct
+     2161 gctcaggatg agactcccag gaagccacct ccggggttgg ctgtctaccc agggttgcca
+     2221 agctgggaag aacactccag ccggacagga cacacacaca cactccccac ccaattgcag
+     2281 agactcgcca acccttcact gaagtggctc tcctgtttgg aatagcgggg tggggtgggg
+     2341 gagaagaaag aaagaaagaa aaaaaatttt taatttctct ttttggtgtt ggttaaaagg
+     2401 gaacacaaga catttaaata aaacatccca aatattaaaa aaaaaaaaaa aaaaaaaaaa
+     2461 aaaaaaaa
+//
