@@ -28,7 +28,7 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
 
     # create objects required to access MongoDB
     from pymongo import MongoClient
-    client = MongoClient()
+    client = MongoClient('10.20.20.5', 27017)
     db = client.chrome
     collect_mrna = db.mrna
     collect_exons = db.exons
@@ -89,7 +89,7 @@ def get_data(arg_organism, arg_gene='', arg_print=''):
 
                 #5. write the full "exons" collection document
                 #   loop thru dictionary keys and values, match-up with previous
-                #   "readthis" aggregate in Step #4 
+                #   "readthis" aggregate in Step #4
                 for k in dict_exons:
                     # parse out the '-' used as a separator between key fields
                     wk_splitkey = k.split('-')
