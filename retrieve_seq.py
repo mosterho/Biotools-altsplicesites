@@ -6,6 +6,7 @@ import sys
 import zlib
 import binascii
 import pymongo
+#import retrieve_pattern  # module within the altsplicesites project
 
 def get_seq(arg_accession, arg_print=''):
 
@@ -17,19 +18,21 @@ def get_seq(arg_accession, arg_print=''):
 
     # define work fields for this def
     wrk_cumulativeseqs = ''
-    cursor = collection_seq.find({"accession":arg_accession})
+    cursor = collection_seq.find({"accession":arg_accession}).sort([("start", pymongo.ASCENDING)])
     for rowdata in cursor:
-        ### all of the following is just to show progression of reversing the binary data conversion and
+        ### all of the following is just to show combinations of reversing the binary data conversion and
         ### and decompression of the "SEQ" attribute of SEQ collection
         #print("Raw row info: ",(rowdata))
         #print("\nseq data only compressed but binary: ", rowdata['seq'])
         #print("\nseq data only decompressed, still binary: ", zlib.decompress(rowdata['seq']))
         #print("\nseq data only decompressed, STR(): ", str(zlib.decompress(rowdata['seq'])))
         #print("\nseq data only decompressed, STR() and decode: ", str(zlib.decompress(rowdata['seq']).decode('ascii')))
+
         wrk_cumulativeseqs += str(zlib.decompress(rowdata['seq']).decode('ascii'))
 
     if(arg_print == 'Y'):
-        print("\nCumulative SEQ data values for ", arg_accession," is: ", wrk_cumulativeseqs)
+        print("\nCumulative SEQ data values for ", arg_accession," is complete ")
+        #print("\nCumulative SEQ data values for ", arg_accession," is: ", wrk_cumulativeseqs)
     return wrk_cumulativeseqs
 
 
