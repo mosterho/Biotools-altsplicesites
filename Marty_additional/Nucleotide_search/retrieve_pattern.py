@@ -9,42 +9,45 @@ import re #regex searches
 class cls_sequence:
 
     def __init__(self, arg_pattern, arg_seq):
-        ### arg_pattern contains the pattern to search for
+        ### arg_pattern contains the search pattern
         ### arg_seq contains the data to search
         self.cls_pattern = arg_pattern
-        #self.cls_pattern_string = 'r"\\' + str(arg_pattern) + '"'
         self.cls_seq = arg_seq
         self.cls_list_result = ()
 
     def get_pattern(self, arg_print='N'):
         ### use regex to find the pattern,
-        ### build a list of arg_seq "regex match" object data
+        ### build a list of arg_seq "regex match" objects
         wrk_result = []
 
         ### re.finditer is the important piece of this module.
+        ### this is used to search Regex patterns
         for wrk_found in re.finditer(self.cls_pattern, self.cls_seq):
             wrk_result.append(wrk_found)
-            if(arg_print == 'Y'):
-                print("wrk_found: " + str(wrk_found))
-        if(arg_print == 'Y'):
-            print("Final list of regex match objects: ", wrk_result)
+            #if(arg_print == 'Y'):
+                #print("wrk_found: " + str(wrk_found))
+        #if(arg_print == 'Y'):
+            #print("Final list of regex match objects: ", wrk_result)
         return wrk_result
 
     def rtn_pattern_list(self, arg_matchobject, arg_print=''):
         # use this routine to accept the regex match object and break it down
         # to a list of tuples (from/to positions) to be sent back to the calling program
         rtn_list = []
+        rtn_count = 0
         if (arg_matchobject):
             for wrk_result in arg_matchobject:
                 ### span() contains the from/to positions of the match object for the string.
                 rtn_list.append(wrk_result.span())
-                if(arg_print == 'Y'):
-                    print("within rtn_pattern_list: ", wrk_result)
-                    print("printing group: ", wrk_result.group())  # responds with seatch pattern
-                    print("printing span: ", wrk_result.span())  # contains the from/to positions
-                    print("printing groups: ", wrk_result.groups())  # nothing
+                rtn_count += 1
+                #if(arg_print == 'Y'):
+                    #print("within rtn_pattern_list: ", wrk_result)
+                    #print("printing group: ", wrk_result.group())  # responds with seatch pattern
+                    #print("printing span: ", wrk_result.span())  # contains the from/to positions
+                    #print("printing groups: ", wrk_result.groups())  # nothing
         if(arg_print == 'Y'):
-            print("print pattern of list of tuples: ", rtn_list)
+            #print("print pattern of list of tuples: ", rtn_list)
+            print("Print number of match objects: ",rtn_count)
         return rtn_list
 
     def rtn_pattern_to_callingprogram(self, arg_print=''):
@@ -88,10 +91,8 @@ if (__name__ == "__main__"):
     After initializing the arguments passed in to this program,
     create class object "tmp_seq_obj" that holds the search pattern
     and the data to be searched.
-    the "tmp_list_results" returned from the "get_pattern" routine
-    contains match objects and is not a simple list of strings, etc.
-    the "rtn_pattern_list" module will return a list
-    of tuples containing the from/to positions of the matches as:
+    the "tmp_return_matchobject_list" returned from the "rtn_pattern_to_callingprogram" module
+    will return a list of tuples containing the from/to positions of the matches as:
     [(from position, to position), (from position, to position), ...]
     Note: the "from position" is similar to index positions, i.e. starts at 0
           and the "to" position is actually the start position of the next string position
@@ -99,6 +100,4 @@ if (__name__ == "__main__"):
           but can be used to determine the length of the found string (end pos - start pos)
     '''
     tmp_seq_obj = cls_sequence(tmp_input_pattern, tmp_input_seq)
-    #tmp_list_results = tmp_seq_obj.get_pattern(tmp_input_print)
-    #tmp_return_matchobject_list = tmp_seq_obj.rtn_pattern_list(tmp_list_results, tmp_input_print)
     tmp_return_matchobject_list = tmp_seq_obj.rtn_pattern_to_callingprogram(tmp_input_print)
