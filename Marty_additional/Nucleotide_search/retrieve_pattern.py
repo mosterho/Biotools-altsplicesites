@@ -13,7 +13,7 @@ class cls_sequence:
         ### arg_seq contains the data to search
         self.cls_pattern = arg_pattern
         self.cls_seq = arg_seq
-        self.cls_list_result = ()
+        #self.cls_list_result = ()
 
     def get_pattern(self, arg_print='N'):
         ### use regex to find the pattern,
