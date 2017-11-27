@@ -13,7 +13,7 @@ def get_seq(arg_organism, arg_accessionnbr, arg_print=''):
 
     # create objects required to access MongoDB
     from pymongo import MongoClient
-    client = MongoClient('10.20.20.5', 27017)
+    client = MongoClient('10.20.20.5')
     db = client.chrome
     collection_seq = db.seq
 
