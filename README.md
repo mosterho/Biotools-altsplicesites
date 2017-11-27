@@ -182,5 +182,42 @@ Join the mrna and exons collections:
 db.mrna.aggregate([{$lookup:{from:"exons", localField:"gene_id", foreignField:"gene_id", as:"results"}}])
 db.mrna.aggregate([{$match:{gene_id:"820"}},{$lookup:{from:"exons", localField:"gene_id", foreignField:"gene_id", as:"results"}}])
 
+---------------------------------------
+11/26/2017
+One last example of an aggregate:
 
-`
+db.seq.aggregate(
+	// Pipeline
+	[
+		// Stage 1
+		{
+			$match: {
+				"organism":"Homo sapiens"
+			}
+		},
+		// Stage 2
+		{
+			$group: {
+				_id:"$accession", count: { $sum: 1 }
+			}
+		},
+		// Stage 3
+		{
+			$sort: {
+			 _id:1
+			}
+		},
+	],
+	// Options
+	{
+		cursor: {
+			batchSize: 50
+		},
+
+		allowDiskUse: true
+	}
+
+	// Created with Studio 3T, the IDE for MongoDB - https://studio3t.com/
+
+);
+---------------------------------------------------------------

@@ -13,15 +13,15 @@ class cls_sequence:
         ### arg_seq contains the data to search
         self.cls_pattern = arg_pattern
         self.cls_seq = arg_seq
-        #self.cls_list_result = ()
 
     def get_pattern(self, arg_print='N'):
-        ### use regex to find the pattern,
+        ### use regex (finditer) to find the pattern,
         ### build a list of arg_seq "regex match" objects
         wrk_result = []
 
         ### re.finditer is the important piece of this module.
         ### this is used to search Regex patterns
+        ### returns a regex match object, add to wrk_result
         for wrk_found in re.finditer(self.cls_pattern, self.cls_seq):
             wrk_result.append(wrk_found)
             #if(arg_print == 'Y'):
