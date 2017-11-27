@@ -11,7 +11,7 @@ import retrieve_seq  # module that is part of the alternative splice site projec
 import retrieve_pattern  # module that is part of the alternative splice site project
 import pymongo
 
-def find_pattern(arg_pattern, arg_organism, arg_accessionnbr='', arg_print=''):
+def get_pattern(arg_pattern, arg_organism, arg_accessionnbr='', arg_print=''):
     ## this validates the entries passed to this program/module.
     ## if the combination of organism/chromosome accession number are invalid,
     ## return "false" to the calling program, otherwise continue
@@ -31,14 +31,10 @@ def find_pattern(arg_pattern, arg_organism, arg_accessionnbr='', arg_print=''):
     return rtn_pattern_list
 
 def validate_arguments(arg_pattern, arg_organism, arg_accessionnbr, arg_print=''):
-    tmp_input_searchpattern = ''
-    tmp_input_organism = ''
-    tmp_input_accessionnbr = ''
-    tmp_input_print = ''
-
     # create objects required to access MongoDB
     from pymongo import MongoClient
-    client = MongoClient('10.20.20.5', 27017)
+    #client = MongoClient('10.20.20.5', 27017)
+    client = MongoClient('10.20.20.5')
     db = client.chrome
     collection_seq = db.seq
 
@@ -86,4 +82,4 @@ if (__name__ == "__main__"):
         else:
             tmp_input_print = sys.argv[4]
 
-    find_pattern(tmp_input_searchpattern, tmp_input_organism, tmp_input_accessionnbr, tmp_input_print)
+    get_pattern(tmp_input_searchpattern, tmp_input_organism, tmp_input_accessionnbr, tmp_input_print)

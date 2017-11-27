@@ -211,29 +211,29 @@ sub sub_frame {
 	return (substr($subarg, $beginningpos, $longestlen));
 }
 
-# ################################################################################
-# # Input: tri-nucleotide codon that tRNA reads
-# # Output: the 3 letter symbolic representation of the corresponding amino acid.
-# sub translate_codon {
-# 	if ( $_ [ 0 ] =~ / GC[AGCU] /i ) { return 'Ala';} # Alanine;
-# 	if ( $_ [ 0 ] =~ / UGC|UGU /i ) { return 'Cys';} # Cysteine
-# 	if ( $_ [ 0 ] =~ / GAC|GAU /i ) { return 'Asp';} # Aspartic Acid;
-# 	if ( $_ [ 0 ] =~ / GAA|GAG /i ) { return 'Glu';} # Glutamine;
-# 	if ( $_ [ 0 ] =~ / UUC|UUU /i ) { return 'Phe';} # Phenylalanine;
-# 	if ( $_ [ 0 ] =~ / GG[AGCU] /i ) { return 'Gly';} # Glycine;
-# 	if ( $_ [ 0 ] =~ / CAC|CAU /i ) { return 'His';} # Histine (start codon);
-# 	if ( $_ [ 0 ] =~ / AU[AUC] /i ) { return 'Ile';} # Isoleucine;
-# 	if ( $_ [ 0 ] =~ / AAA|AAG /i ) { return 'Lys';} # Lysine;
-# 	if ( $_ [ 0 ] =~ / UUA|UUG|CU[AGCU] /i ) { return 'Leu';} # Leucine;
-# 	if ( $_ [ 0 ] =~ / AUG /i ) { return 'Met';} # Methionine;
-# 	if ( $_ [ 0 ] =~ / AAC|AAU /i ) { return 'Asn';} # Asparagine;
-# 	if ( $_ [ 0 ] =~ / CC[AGCU] /i ) { return 'Pro';} # Proline;
-# 	if ( $_ [ 0 ] =~ / CAA|CAG /i ) { return 'Gln';} # Glutamine;
-# 	if ( $_ [ 0 ] =~ / AGA|AGG|CG[AGCU] /i ) { return 'Arg';} # Arginine;
-# 	if ( $_ [ 0 ] =~ / AGC|AGU|UC[AGCU] /i ) { return 'Ser';} # Serine;
-# 	if ( $_ [ 0 ] =~ / AC[AGCU] /i ) { return 'Thr';} # Threonine;
-# 	if ( $_ [ 0 ] =~ / GU[AGCU] /i ) { return 'Val';} # Valine;
-# 	if ( $_ [ 0 ] =~ / UGG /i ) { return 'Trp';} # Tryptophan;
-# 	if ( $_ [ 0 ] =~ / UAC|UAU /i ) { return 'Tyr';} # Tyrosine;
-# 	if ( $_ [ 0 ] =~ / UAA|UGA|UAG /i ) { return "***" ;} # Stop Codons;
-# }
+################################################################################
+# Input: tri-nucleotide codon that tRNA reads
+# Output: the 3 letter symbolic representation of the corresponding amino acid.
+sub translate_codon {
+	if ( $_ [ 0 ] =~ / GC[AGCU] /i ) { return 'Ala';} # Alanine;
+	if ( $_ [ 0 ] =~ / UGC|UGU /i ) { return 'Cys';} # Cysteine
+	if ( $_ [ 0 ] =~ / GAC|GAU /i ) { return 'Asp';} # Aspartic Acid;
+	if ( $_ [ 0 ] =~ / GAA|GAG /i ) { return 'Glu';} # Glutamine;
+	if ( $_ [ 0 ] =~ / UUC|UUU /i ) { return 'Phe';} # Phenylalanine;
+	if ( $_ [ 0 ] =~ / GG[AGCU] /i ) { return 'Gly';} # Glycine;
+	if ( $_ [ 0 ] =~ / CAC|CAU /i ) { return 'His';} # Histine (start codon);
+	if ( $_ [ 0 ] =~ / AU[AUC] /i ) { return 'Ile';} # Isoleucine;
+	if ( $_ [ 0 ] =~ / AAA|AAG /i ) { return 'Lys';} # Lysine;
+	if ( $_ [ 0 ] =~ / UUA|UUG|CU[AGCU] /i ) { return 'Leu';} # Leucine;
+	if ( $_ [ 0 ] =~ / AUG /i ) { return 'Met';} # Methionine;
+	if ( $_ [ 0 ] =~ / AAC|AAU /i ) { return 'Asn';} # Asparagine;
+	if ( $_ [ 0 ] =~ / CC[AGCU] /i ) { return 'Pro';} # Proline;
+	if ( $_ [ 0 ] =~ / CAA|CAG /i ) { return 'Gln';} # Glutamine;
+	if ( $_ [ 0 ] =~ / AGA|AGG|CG[AGCU] /i ) { return 'Arg';} # Arginine;
+	if ( $_ [ 0 ] =~ / AGC|AGU|UC[AGCU] /i ) { return 'Ser';} # Serine;
+	if ( $_ [ 0 ] =~ / AC[AGCU] /i ) { return 'Thr';} # Threonine;
+	if ( $_ [ 0 ] =~ / GU[AGCU] /i ) { return 'Val';} # Valine;
+	if ( $_ [ 0 ] =~ / UGG /i ) { return 'Trp';} # Tryptophan;
+	if ( $_ [ 0 ] =~ / UAC|UAU /i ) { return 'Tyr';} # Tyrosine;
+	if ( $_ [ 0 ] =~ / UAA|UGA|UAG /i ) { return "***" ;} # Stop Codons;
+}
