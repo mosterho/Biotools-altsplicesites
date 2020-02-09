@@ -18,7 +18,7 @@ def get_altsplice(arg_gene, arg_print=''):
 
     # create objects required to access MongoDB
     from pymongo import MongoClient
-    client = MongoClient('10.20.20.5', 27017)
+    client = MongoClient('Ubuntu18Server01', 27017)
     db = client.chrome
     collect = db.mrna
 

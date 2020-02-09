@@ -18,7 +18,8 @@ def get_pattern(arg_pattern, arg_organism, arg_accessionnbr='', arg_print=''):
     wrk_return = validate_arguments(arg_pattern, arg_organism, arg_accessionnbr, arg_print)
     if(wrk_return == 0):
         return
-
+    if(arg_print == 'Y'):
+        print("retrieving data for pattern ", arg_pattern)
     rtn_pattern_list = []  # returns a list of tuples containing from/to positions
     #  retrieve the full nucleotide sequence (the data to be searched)
     tmp_output_cumseq = retrieve_seq.get_seq(arg_organism, arg_accessionnbr, arg_print)
@@ -34,14 +35,14 @@ def validate_arguments(arg_pattern, arg_organism, arg_accessionnbr, arg_print=''
     # create objects required to access MongoDB
     from pymongo import MongoClient
     #client = MongoClient('10.20.20.5', 27017)
-    client = MongoClient('10.20.20.5')
+    client = MongoClient('Ubuntu18Server01')
     db = client.chrome
     collection_seq = db.seq
 
     if(arg_accessionnbr == ''):
-        cursor = collection_seq.find({"organism":arg_organism}).sort([("accession", pymongo.ASCENDING),("start", pymongo.ASCENDING)])
+        cursor = collection_seq.find({"organism":arg_organism}).limit(1)
     else:
-        cursor = collection_seq.find({"organism":arg_organism, "accession":arg_accessionnbr}).sort([("accession", pymongo.ASCENDING),("start", pymongo.ASCENDING)])
+        cursor = collection_seq.find({"organism":arg_organism, "accession":arg_accessionnbr}).limit(1)
 
     # if at least one entry is found, return "true"
     for wrk_row in cursor:

@@ -1,19 +1,19 @@
 '''
     Retrieve and decompress the nucleotides in the seq collection
     from the mongodb database
-    Argument is organism (e.g., Homo sapiens)
+    Argument is organism (e.g., Homo sapiens), accession#, print
 '''
 
 import sys
 import zlib
-import binascii
+#import binascii
 import pymongo
 
 def get_seq(arg_organism, arg_accessionnbr, arg_print=''):
 
     # create objects required to access MongoDB
     from pymongo import MongoClient
-    client = MongoClient('10.20.20.5')
+    client = MongoClient('Ubuntu18Server01')
     db = client.chrome
     collection_seq = db.seq
 
@@ -29,7 +29,7 @@ def get_seq(arg_organism, arg_accessionnbr, arg_print=''):
 
     if(arg_print == 'Y'):
         #print(wrk_cumulativeseqs)
-        print("\nCumulative SEQ data values for ", arg_organism, "accession: ", arg_accessionnbr, " is complete ")
+        print("\nCumulative SEQ data values for:", arg_organism, "accession:", arg_accessionnbr, "is complete, ", len(wrk_cumulativeseqs), "nucleotides retrieved")
     return wrk_cumulativeseqs
 
 
