@@ -16,6 +16,6 @@ import retrieve_altsplicesites as alt
 # 862   # complex example of mixed exon start/end positions
 # 8913  # probably the most complex, has 28 mRNA associated with this gene accession#
 
-for x in [99999999999,820,6402,6628]:
+for x in [99999999999,820,6402,6003, 6628, 862, 8913]:
     rtn_list = alt.get_altsplice(str(x), '')
     print('\n** From within testmodule, print for:',x,'  ',rtn_list,'\n**---------------------------------------------------')
