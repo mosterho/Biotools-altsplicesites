@@ -5,9 +5,19 @@
 
 ## see "retrieve_pattern" in Biotools folder for example code
 
-import re
+import sys, re
 
+def fnc_search(arg_searchpattern, arg_data, arg_debug=''):
 
+    if(arg_debug == '-v' or arg_debug == '-vv'):
+        print('search pattern: ' + arg_searchpattern)
+        print('input data: ' + arg_data)
+    for dataread in arg_data:
+        wrk_founddata = re.finditer(arg_searchpattern, dataread)
+        if(arg_debug == '-vv'):
+            print('found: ' + str(wrk_founddata))
+
+    return 'whatever'
 
 
 
@@ -19,9 +29,8 @@ import re
 
 if (__name__ == "__main__"):
     tmp_input_searchpattern = ''
-    tmp_input_organism = ''
-    tmp_input_accessionnbr = ''
-    tmp_input_print = ''
+    #tmp_input_data = ''   # let the argument determine the data type, probably list of bytedata
+    #tmp_input_print = ''
 
     if(len(sys.argv) == 1):
         raise ValueError('Search pattern is mandatory for the first argument for this program')
@@ -29,19 +38,15 @@ if (__name__ == "__main__"):
         tmp_input_searchpattern = str(sys.argv[1])
 
     if(len(sys.argv) == 2):
-        raise ValueError('Data to search is mandatory for this program')
+        raise ValueError('Data to be searched is mandatory for this program')
     else:
-        tmp_input_organism = str(sys.argv[2])
-
-    # accession number can be any value, watch positions for next argument though...
-    if(len(sys.argv) >= 4):
-        tmp_input_accessionnbr = str(sys.argv[3])
+        tmp_input_data = str(sys.argv[2])
 
     # if second (print/debug) argument exists, but is not 'Y', just default to blank/empty string
-    if(len(sys.argv) == 5):
-        if(sys.argv[4] != 'Y'):
-            tmp_input_print = ''
+    if(len(sys.argv) == 4):
+        if(sys.argv[3] != '-v' and sys.argv[3] != '-vv'):
+            tmp_input_debug = ''
         else:
-            tmp_input_print = sys.argv[4]
+            tmp_input_debug = sys.argv[3]
 
-    #get_pattern(tmp_input_searchpattern, tmp_input_organism, tmp_input_accessionnbr, tmp_input_print)
+    rtn_value = fnc_search(tmp_input_searchpattern, tmp_input_data, tmp_input_debug)
