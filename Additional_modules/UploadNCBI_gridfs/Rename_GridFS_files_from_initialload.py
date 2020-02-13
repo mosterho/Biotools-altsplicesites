@@ -9,4 +9,4 @@ import gridfs
 
 client = MongoClient('Ubuntu18Server01')
 db = client.Chromosome
-fs = gridfs.GridFSBucket(db)
+fs = gridfs.GridFS(db)

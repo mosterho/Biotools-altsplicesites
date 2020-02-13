@@ -83,4 +83,4 @@ if (__name__ == "__main__"):
         else:
             tmp_input_print = sys.argv[4]
 
-    get_pattern(tmp_input_searchpattern, tmp_input_organism, tmp_input_accessionnbr, tmp_input_print)
+    rtn_pattern_list = get_pattern(tmp_input_searchpattern, tmp_input_organism, tmp_input_accessionnbr, tmp_input_print)
