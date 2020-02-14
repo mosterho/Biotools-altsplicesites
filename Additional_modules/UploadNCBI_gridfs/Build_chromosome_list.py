@@ -84,7 +84,7 @@ if (__name__ == "__main__"):
 
     # evaluate print/debug argument
     if(len(sys.argv) == 4):
-        if(str(sys.argv[3])[0:2] != '-v' and str(sys.argv[3])[0:2] != '-vv'):
+        if(str(sys.argv[3])[0:2] != '-v' and str(sys.argv[3])[0:3] != '-vv'):
             tmp_input_debug = ''
         else:
             tmp_input_debug = sys.argv[3]
