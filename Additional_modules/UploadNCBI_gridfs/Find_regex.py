@@ -47,7 +47,7 @@ if (__name__ == "__main__"):
     else:
         tmp_input_data = sys.argv[2]
 
-    # if second (print/debug) argument exists, but is not valid, just default to blank/empty string
+    # if print/debug argument exists, but is not valid, just default to blank/empty string
     if(len(sys.argv) == 4):
         if(sys.argv[3] != '-v' and sys.argv[3] != '-vv'):
             tmp_input_debug = ''
