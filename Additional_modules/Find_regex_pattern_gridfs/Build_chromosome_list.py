@@ -21,8 +21,9 @@ class cls_chromosome_object:
         self.cls_chromosome = arg_chromosome
         self.cls_debug = arg_debug
         self.cls_nucleotides = ''
+        self.cls_filename = str(self.cls_organism) + '_' + self.cls_chromosome
 
-    def build_chromosome(self, arg_chromosome):
+    def build_chromosome(self):
         ### Use the class cls_seq to create the bytelist of a chromsome, SPLIT off newline characters
         ### and return a list bytelist of nucleotides
         client = MongoClient('Ubuntu18Server01')
@@ -33,9 +34,9 @@ class cls_chromosome_object:
         if(self.cls_debug == '-v' or self.cls_debug == '-vv'):
             #print('print plain fs: ')
             #print(fs)
-            print('print ID for bucket for fs.find({"filename":' + self.cls_chromosome + '}): ')
-            print(fs.find({"filename":self.cls_chromosome}))
-        for dataread in fs.find({"filename":self.cls_chromosome}):
+            print('print ID for bucket for fs.find({"filename":' + self.cls_filename + '}): ')
+            print(fs.find({"filename":self.cls_filename}))
+        for dataread in fs.find({"filename":self.cls_filename}):
             #print('\n\n***NEW chromosome - Load byte data into variable for each file (chromosome), print dataread in loop: ')
             dataread_actual = dataread.read()
             #print('Create a list of byte data from the file/bucket, SPLIT off newline')
@@ -84,9 +85,11 @@ if (__name__ == "__main__"):
 
     # evaluate print/debug argument
     if(len(sys.argv) == 4):
-        if(str(sys.argv[3])[0:2] != '-v' and str(sys.argv[3])[0:2] != '-vv'):
+        if(str(sys.argv[3])[0:2] != '-v' and str(sys.argv[3])[0:3] != '-vv'):
             tmp_input_debug = ''
         else:
             tmp_input_debug = sys.argv[3]
+
+    ##  create a class-chromosome object to work with, then find a string within that
     tmp_cls_chromosome_object = cls_chromosome_object(tmp_input_organism, tmp_input_chromosomenbr, tmp_input_debug)
-    rtn_chromosome_list = tmp_cls_chromosome_object.build_chromosome(tmp_input_chromosomenbr)
+    rtn_chromosome_list = tmp_cls_chromosome_object.build_chromosome()
