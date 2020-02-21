@@ -30,10 +30,12 @@ class cls_overall_container:
         pass
     def fnc_validate_taxon(self):
         try:
-            self.fs()
-            pass
+            tmp_rtv_object = self.db.files.find({"filename" : "9600adsfgadfsdsfg"})
+            #db.inventory.find( { tags: { $eq: [ "A", "B" ] } } )
+            print('This may have worked!!!!! ', tmp_rtv_object)
         except Exception as e:
-            raise
+            raise ValueError('Could not validate taxon passed into this program', e)
+        return True
 
 ##
 
@@ -74,4 +76,5 @@ if (__name__ == "__main__"):
         else:
             tmp_input_debug = sys.argv[4]
 
-    wrk_container = cls_overall_container(tmp_input_organism, tmp_input_searchpattern, tmp_input_chromosomenbr, tmp_input_debug)
+    wrk_container = cls_overall_container(tmp_input_organism, *tmp_input_chromosomenbr, **tmp_input_searchpattern, **tmp_input_debug)
+    wrk_valid = wrk_container.fnc_validate_taxon()
