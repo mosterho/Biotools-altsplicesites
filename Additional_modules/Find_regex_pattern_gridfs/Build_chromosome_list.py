@@ -55,9 +55,8 @@ class cls_chromosome_object:
                     print(dataread_actual_bytelist[i])
         try:
             testthis = str(dataread_actual)
-        except:
-            raise ValueError('Invalid chromsome file name passed to program')
-            return
+        except Exception as e:
+            raise ValueError('Invalid chromsome file name passed to program', e)
 
         return(dataread_actual_bytelist)
 

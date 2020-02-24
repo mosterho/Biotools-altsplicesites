@@ -7,15 +7,17 @@
 
 
 from pymongo import MongoClient
-import sys, re, gridfs
+import sys, re, gridfs, argparse
 import Build_chromosome_list, Find_regex
 
 class cls_overall_container:
-    def __init__(self, arg_taxon, arg_searchpattern, arg_chromosome='', arg_debug=''):
+    def __init__(self, arg_taxon, arg_chromosome, arg_searchpattern, arg_verbose):
         self.taxon = arg_taxon
+        # For now, assume chromosome contains only one value
+        for cls_loop in arg_chromosome:
+            self.chromosome = 'chromosome' + str(cls_loop)
         self.searchpattern = arg_searchpattern
-        self.chromosome = arg_chromosome
-        self.debug = arg_debug
+        self.verbose = arg_verbose
 
         client = MongoClient('Ubuntu18Server01')
         self.db = client.Chromosome
@@ -29,11 +31,16 @@ class cls_overall_container:
     def fnc_find_pattern(self):
         pass
     def fnc_validate_taxon(self):
+        ##
+        ## build a serch string for $regex
+        tmp_search = '/^' + str(self.taxon) + '_' + self.chromosome + '/'
+        #for dataread in self.fsbucket.find({"filename" : {"$regex" : "$$tmp_search"}}):
+        for dataread in self.fsbucket.find({"filename" : str(self.taxon) + '_' + self.chromosome}):
+            print('This may have worked!!!!! ', str(dataread.read()[0:79]))
         try:
-            tmp_rtv_object = self.db.files.find({"filename" : "9600adsfgadfsdsfg"})
-            #db.inventory.find( { tags: { $eq: [ "A", "B" ] } } )
-            print('This may have worked!!!!! ', tmp_rtv_object)
+            teststring = str(dataread)
         except Exception as e:
+            print(self.taxon, ' ', self.chromosome)
             raise ValueError('Could not validate taxon passed into this program', e)
         return True
 
@@ -48,33 +55,13 @@ class cls_overall_container:
 ###  depending on where/how it's called
 
 if (__name__ == "__main__"):
-    #tmp_input_organism = 0
-    #tmp_input_searchpattern = ''
-    #tmp_input_chromosomenbr = ''
-    #tmp_input_debug = ''
 
-    if(len(sys.argv) == 1):
-        raise ValueError('Taxon/Organism is mandatory for this program')
-    else:
-        tmp_input_organism = int(sys.argv[1])
+    wrk_parser = argparse.ArgumentParser()
+    wrk_parser.add_argument("Taxon", help="the taxon is the numeric ID of the species e.g., 9606 is homo Sapiens", type=int)
+    wrk_parser.add_argument("-c", "--chromosome", help="the chromosome number of the species. This will accept multiple values e.g., 1 2 4 X MT", nargs="*", default='')
+    wrk_parser.add_argument("-s", '--SearchPattern', help="the regex search pattern to look for in the chromosome(s)")
+    wrk_parser.add_argument("-v", "--verbose", help="Specifiy the level of vebose output, valid values are -v and -vv", action="count", default=0)
+    rslt_parser = wrk_parser.parse_args()
 
-    # ...
-    if(len(sys.argv) == 2):
-        raise ValueError('Search pattern is mandatory for this program')
-    else:
-        tmp_input_searchpattern = sys.argv[2]
-    # ...
-    if(len(sys.argv) == 3):
-        tmp_input_chromosomenbr = ''
-    else:
-        tmp_input_chromosomenbr = sys.argv[3]
-
-    # evaluate print/debug argument
-    if(len(sys.argv) >= 4):
-        if(str(sys.argv[4])[0:2] != '-v' and str(sys.argv[3])[0:3] != '-vv'):
-            tmp_input_debug = ''
-        else:
-            tmp_input_debug = sys.argv[4]
-
-    wrk_container = cls_overall_container(tmp_input_organism, *tmp_input_chromosomenbr, **tmp_input_searchpattern, **tmp_input_debug)
+    wrk_container = cls_overall_container(rslt_parser.Taxon, rslt_parser.chromosome, rslt_parser.SearchPattern, rslt_parser.verbose)
     wrk_valid = wrk_container.fnc_validate_taxon()
