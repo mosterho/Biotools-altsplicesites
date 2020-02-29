@@ -9,56 +9,31 @@
 ## This behaves in a similar manner to the previous project,
 ## except that the modules work with the GridFS system.
 ##
+##  arguments:
+##    arg_taxon = numeric value for species
+##    arg_chromosome = list of multiple full name of a single chromosome such as 'chromosomeX'
+##    arg_verbose = numeric equivalent from argparser (-vv = 2)
 
-from pymongo import MongoClient
-import gridfs, sys
 
-class cls_chromosome_object:
-    def __init__(self, arg_organism, arg_chromosome, arg_debug):
-        ### arg_organism contains the number of the Organism
-        ### arg_chromosome contains the chromosme number (e.g., chromome1, chromsome12, etc.)
-        self.cls_organism = arg_organism
-        self.cls_chromosome = arg_chromosome
-        self.cls_debug = arg_debug
-        self.cls_nucleotides = ''
-        self.cls_filename = str(self.cls_organism) + '_' + self.cls_chromosome
+#from pymongo import MongoClient
+import sys, chromosome_object
 
-    def build_chromosome(self):
-        ### Use the class cls_seq to create the bytelist of a chromsome, SPLIT off newline characters
-        ### and return a list bytelist of nucleotides
-        client = MongoClient('Ubuntu18Server01')
-        db = client.Chromosome
-        fs = gridfs.GridFSBucket(db)
+class cls_all_chromosome:
+    def __init__(self, arg_taxon, arg_chromosome, arg_verbose):
 
-        ### the following prints an index, not readable data
-        if(self.cls_debug == '-v' or self.cls_debug == '-vv'):
-            #print('print plain fs: ')
-            #print(fs)
-            print('print ID for bucket for fs.find({"filename":' + self.cls_filename + '}): ')
-            print(fs.find({"filename":self.cls_filename}))
-        for dataread in fs.find({"filename":self.cls_filename}):
-            #print('\n\n***NEW chromosome - Load byte data into variable for each file (chromosome), print dataread in loop: ')
-            dataread_actual = dataread.read()
-            #print('Create a list of byte data from the file/bucket, SPLIT off newline')
-            dataread_actual_bytelist = dataread_actual.split(b'\n')
-            if(self.cls_debug == '-vv'):
-                print('\nuse FOR loop to print the first 5 lines of the list')
-                for i in range(5):
-                    print(dataread_actual_bytelist[i])
-            #Use POP to remove the first line (this contains the >gi|, description of the file, etc.)
-            dataread_actual_firstline = dataread_actual_bytelist.pop(0)
-            if(self.cls_debug == '-vv'):
-                print('\nprint dataread_actual_firstline - should be first line of chromosome file')
-                print(dataread_actual_firstline)
-                print('print dataread_actual_list after pop - should be only nucleotides')
-                for i in range(5):
-                    print(dataread_actual_bytelist[i])
-        try:
-            testthis = str(dataread_actual)
-        except Exception as e:
-            raise ValueError('Invalid chromsome file name passed to program', e)
+        self.taxon = arg_taxon
+        self.chromosome = arg_chromosome
+        self.verbose = arg_verbose
+        working_cls_chromosome_object = []
+        if(self.verbose == 2):
+            print(sys.argv[0], ' ', self.chromosome)
+        for i_chromosome in self.chromosome:
+            wrk_chromosome = chromosome_object.cls_chromosome_object(self.taxon, i_chromosome, self.verbose)
+            wrk_chromosome.build_chromosome()
+            working_cls_chromosome_object.append(wrk_chromosome)
+        if(self.verbose == 2):
+            print(sys.argv[0], ' ', 'Full working class chromosome object (i.e. all chromosomes): ', working_cls_chromosome_object)
 
-        return(dataread_actual_bytelist)
 
 #-------------------------------------------------------------------------------
 #### begin mainline
@@ -67,28 +42,32 @@ class cls_chromosome_object:
 ###  depending on where/how it's called
 
 if (__name__ == "__main__"):
-    tmp_input_organism = ''
-    tmp_input_chromosomenbr = ''
-    tmp_input_debug = ''
+    #tmp_input_taxon = ''
+    #tmp_input_chromosomenbr = ''
+    #tmp_input_debug = ''
 
     if(len(sys.argv) == 1):
-        raise ValueError('Organism is mandatory for this program')
+        raise ValueError('taxon is mandatory for this program')
     else:
-        tmp_input_organism = int(sys.argv[1])
+        tmp_input_taxon = int(sys.argv[1])
 
     # accession number can be any value, watch positions for next argument though...
     if(len(sys.argv) == 2):
         raise ValueError('Chromosome is mandatory for this program')
     else:
-        tmp_input_chromosomenbr = str(sys.argv[2])
+        tmp_input_chromosomenbr = [sys.argv[2]]
 
     # evaluate print/debug argument
-    if(len(sys.argv) == 4):
-        if(str(sys.argv[3])[0:2] != '-v' and str(sys.argv[3])[0:3] != '-vv'):
-            tmp_input_debug = ''
-        else:
-            tmp_input_debug = sys.argv[3]
+    if(len(sys.argv) == 3):
+        raise ValueError('Verbose flags are mandatory for this program')
+    else:
+        tmp_input_verbose = int(sys.argv[3])
 
     ##  create a class-chromosome object to work with, then find a string within that
-    tmp_cls_chromosome_object = cls_chromosome_object(tmp_input_organism, tmp_input_chromosomenbr, tmp_input_debug)
-    rtn_chromosome_list = tmp_cls_chromosome_object.build_chromosome()
+    tmp_cls_chromosome_object = cls_all_chromosome(tmp_input_taxon, tmp_input_chromosomenbr, tmp_input_verbose)
+
+else:
+    pass
+if(2 == 2):
+    print('printing "Body" info for: ', sys.argv[0], ' ', __name__)
+    print('Type of object passedin: ', type(sys.argv[2]))
