@@ -15,7 +15,7 @@ import sys, gridfs
 
 class cls_chromosome_object:
     def __init__(self, arg_taxon, arg_chromosome, arg_verbose):
-        
+
         self.cls_taxon = arg_taxon
         self.cls_chromosome = arg_chromosome
         self.cls_verbose = arg_verbose
@@ -31,11 +31,11 @@ class cls_chromosome_object:
         grid  = gridfs.GridFSBucket(db)
 
         ### the following prints an index, not readable data
-        if(self.cls_verbose in (1,2)):
+        if(self.cls_verbose == 2):
             #print('print plain fs: ')
             #print(fs)
-            print('print ID/cursor object for grid.find({"filename":' + self.cls_filename + '}): ')
-            print(grid.find({"filename":self.cls_filename}))
+            print(__name__, ' called from: ', sys.argv[0], ' ', 'print ID/cursor object for grid.find({"filename":' + self.cls_filename + '}): ')
+            print(__name__, ' called from: ', sys.argv[0], ' ', grid.find({"filename":self.cls_filename}))
         for dataread in grid.find({"filename":self.cls_filename}):
             #print('\n\n***NEW chromosome - Load byte data into variable for each file (chromosome), print dataread in loop: ')
             dataread_actual = dataread.read()

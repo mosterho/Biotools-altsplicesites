@@ -26,13 +26,15 @@ class cls_all_chromosome:
         self.verbose = arg_verbose
         working_cls_chromosome_object = []
         if(self.verbose == 2):
-            print(sys.argv[0], ' ', self.chromosome)
+            print(__name__, ' called from: ', sys.argv[0], ' ', self.chromosome)
         for i_chromosome in self.chromosome:
             wrk_chromosome = chromosome_object.cls_chromosome_object(self.taxon, i_chromosome, self.verbose)
             wrk_chromosome.build_chromosome()
             working_cls_chromosome_object.append(wrk_chromosome)
+            if(self.verbose == 1):
+                print(__name__, ' called from: ', sys.argv[0], ' ', 'Class object for ', i_chromosome, ' complete')
         if(self.verbose == 2):
-            print(sys.argv[0], ' ', 'Full working class chromosome object (i.e. all chromosomes): ', working_cls_chromosome_object)
+            print(__name__, ' called from: ', sys.argv[0], ' ', 'Full working class chromosome object (i.e. all chromosomes): ', working_cls_chromosome_object)
 
 
 #-------------------------------------------------------------------------------
@@ -68,6 +70,6 @@ if (__name__ == "__main__"):
 
 else:
     pass
-if(2 == 2):
-    print('printing "Body" info for: ', sys.argv[0], ' ', __name__)
-    print('Type of object passedin: ', type(sys.argv[2]))
+#if(self.verbose == 2):
+    #print('printing "Body" info for: ', sys.argv[0], ' ', __name__)
+    #print('Type of object passedin: ', type(sys.argv[2]))
