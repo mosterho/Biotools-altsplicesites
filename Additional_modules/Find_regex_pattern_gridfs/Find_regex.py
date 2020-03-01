@@ -8,21 +8,25 @@
 
 import sys, re
 
-def fnc_search(arg_searchpattern, arg_data, arg_debug=''):
+def fnc_search(arg_searchpattern, arg_data, arg_verbose):
 
     parm_dataread = []  # return a list of iterator objects from FINDITER()
 
-    if(arg_debug == '-v' or arg_debug == '-vv'):
-        print('search pattern: ', arg_searchpattern)
-        print('input data: ', arg_data)
+    if(arg_verbose >= 2):
+        print(__name__, ' called from: ', sys.argv[0], ' ', 'search pattern: ', arg_searchpattern)
+        #print('input data: ', arg_data)
 
     ## use finditer to create an "iterator" object to loop through
     ## note: finditer requires strings to search, not lists
     wrk_founddata = re.finditer(arg_searchpattern, arg_data)
+    if(arg_verbose >= 2):
+        print(__name__, ' called from: ', sys.argv[0], ' ', 'Full match object reference: ', wrk_founddata)
+    tmp_counter = 0
     for dataread in wrk_founddata:
         parm_dataread.append(dataread)
-        if(arg_debug == '-vv'):
-            print('found: ',  dataread)
+        tmp_counter += 1
+        if(arg_verbose >= 2 and tmp_counter <= 10):
+            print(__name__, ' called from: ', sys.argv[0], ' ', 'print only 1st 10 matches: ',  dataread)
 
     return parm_dataread
 
@@ -33,9 +37,6 @@ def fnc_search(arg_searchpattern, arg_data, arg_debug=''):
 ###  depending on where/how it's called
 
 if (__name__ == "__main__"):
-    #tmp_input_searchpattern = ''
-    #tmp_input_data = []   # let the argument determine the data type, probably list of bytedata
-    #tmp_input_print = ''
 
     if(len(sys.argv) == 1):
         raise ValueError('Search pattern is mandatory for the first argument for this program')
@@ -47,11 +48,10 @@ if (__name__ == "__main__"):
     else:
         tmp_input_data = sys.argv[2]
 
-    # if print/debug argument exists, but is not valid, just default to blank/empty string
-    if(len(sys.argv) == 4):
-        if(sys.argv[3] != '-v' and sys.argv[3] != '-vv'):
-            tmp_input_debug = ''
-        else:
-            tmp_input_debug = sys.argv[3]
+    # evaluate print/debug argument
+    if(len(sys.argv) == 3):
+        raise ValueError('Verbose flags are mandatory for this program')
+    else:
+        tmp_input_verbose = int(sys.argv[3])
 
-    rtn_value = fnc_search(tmp_input_searchpattern, tmp_input_data, tmp_input_debug)
+    rtn_value = fnc_search(tmp_input_searchpattern, tmp_input_data, tmp_input_verbose)
