@@ -2,44 +2,32 @@
 ##
 ##  Main calling program for finding a regex pattern in
 ##  the GridFS version of NCBI chromosome data
-##  Arguments: Taxon (numeric) version of species, pattern to search,
-##  chromosome to search (optional), and debugging options.
+##  Arguments: Taxon (numeric) version of species,
+##  chromosome to search,
+##  pattern to search, and verbose (debugging) options.
 
-
-from pymongo import MongoClient
-import sys, re, gridfs
+import sys, argparse
 import Build_chromosome_list, Find_regex
 
 class cls_overall_container:
-    def __init__(self, arg_taxon, arg_searchpattern, arg_chromosome='', arg_debug=''):
+    def __init__(self, arg_taxon, arg_chromosome, arg_searchpattern, arg_verbose):
         self.taxon = arg_taxon
+        # For now, assume arg_chromosome contains only one value
+        self.chromosome = []
+        for cls_loop in arg_chromosome:
+            self.chromosome.append('chromosome' + str(cls_loop))
         self.searchpattern = arg_searchpattern
-        self.chromosome = arg_chromosome
-        self.debug = arg_debug
+        self.verbose = arg_verbose
+        if(self.verbose in (1,2)):
+            print(__name__, ' called from: ', sys.argv[0], '\nTaxon is: ', self.taxon, '\nchromosome(s): ', self.chromosome, '\nSearch Pattern: ', self.searchpattern)
 
-        client = MongoClient('Ubuntu18Server01')
-        self.db = client.Chromosome
-        self.fs       = gridfs.GridFS(self.db)
-        self.fsbucket = gridfs.GridFSBucket(self.db)
-
-    def fnc_retrieve_chromosome(self):
-        pass
-    def fnc_chromosome(self):
-        pass
-    def fnc_find_pattern(self):
-        pass
-    def fnc_validate_taxon(self):
-        try:
-            tmp_rtv_object = self.db.files.find({"filename" : "9600adsfgadfsdsfg"})
-            #db.inventory.find( { tags: { $eq: [ "A", "B" ] } } )
-            print('This may have worked!!!!! ', tmp_rtv_object)
-        except Exception as e:
-            raise ValueError('Could not validate taxon passed into this program', e)
-        return True
+    def fnc_validate_searchpattern(self):
+        if(self.searchpattern):
+            pass
+        else:
+            raise ValueError('A search pattern is required')
 
 ##
-
-
 
 #-------------------------------------------------------------------------------
 #### begin mainline
@@ -48,33 +36,23 @@ class cls_overall_container:
 ###  depending on where/how it's called
 
 if (__name__ == "__main__"):
-    #tmp_input_organism = 0
-    #tmp_input_searchpattern = ''
-    #tmp_input_chromosomenbr = ''
-    #tmp_input_debug = ''
 
-    if(len(sys.argv) == 1):
-        raise ValueError('Taxon/Organism is mandatory for this program')
-    else:
-        tmp_input_organism = int(sys.argv[1])
+    ## work with argument parser to build correct parameter/argument values
+    wrk_parser = argparse.ArgumentParser(usage="Search chromosome(s) in the GridFS system for a pattern. The arugments accepted include: a single taxon; multiple chromsome numbers (1 2 X Y); a search pattern; verbose output option")
+    wrk_parser.add_argument("Taxon", help="the taxon is the numeric ID of the species (e.g., 9606 is homo Sapiens)", type=int)
+    wrk_parser.add_argument("-c", "--chromosome", help="the chromosome number of the species. This will accept multiple values (e.g., 1 2 4 X MT)", nargs="*", default='')
+    wrk_parser.add_argument("-s", '--SearchPattern', help="the regex search pattern to look for in the chromosome(s)")
+    wrk_parser.add_argument("-v", "--verbose", help="Specifiy the level of vebose output, valid values are -v and -vv", action="count", default=0)
+    rslt_parser = wrk_parser.parse_args()
 
-    # ...
-    if(len(sys.argv) == 2):
-        raise ValueError('Search pattern is mandatory for this program')
-    else:
-        tmp_input_searchpattern = sys.argv[2]
-    # ...
-    if(len(sys.argv) == 3):
-        tmp_input_chromosomenbr = ''
-    else:
-        tmp_input_chromosomenbr = sys.argv[3]
+    if(rslt_parser.verbose == 2):
+        print(__name__, ' ', sys.argv[0], ' ', 'Result of the parser is: ', rslt_parser)
 
-    # evaluate print/debug argument
-    if(len(sys.argv) >= 4):
-        if(str(sys.argv[4])[0:2] != '-v' and str(sys.argv[3])[0:3] != '-vv'):
-            tmp_input_debug = ''
-        else:
-            tmp_input_debug = sys.argv[4]
+    ## Build class that contains overall info
+    wrk_container = cls_overall_container(rslt_parser.Taxon, rslt_parser.chromosome, rslt_parser.SearchPattern, rslt_parser.verbose)
+    wrk_valid_searchpattern = wrk_container.fnc_validate_searchpattern()
+    if(rslt_parser.verbose == 2):
+        print(__name__, ' called from: ', sys.argv[0], ' ', 'Result of the creating container is: ', wrk_container)
 
-    wrk_container = cls_overall_container(tmp_input_organism, *tmp_input_chromosomenbr, **tmp_input_searchpattern, **tmp_input_debug)
-    wrk_valid = wrk_container.fnc_validate_taxon()
+    ## Build the chromosome list -- this will contain all info (taxon, details about chromosome, search pattern)
+    wrk_Buildchromosomelist = Build_chromosome_list.cls_all_chromosome(wrk_container.taxon, wrk_container.chromosome, wrk_container.searchpattern,  wrk_container.verbose)
