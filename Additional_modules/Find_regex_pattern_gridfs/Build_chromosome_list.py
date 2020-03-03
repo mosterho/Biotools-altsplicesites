@@ -14,7 +14,7 @@
 ##    arg_chromosome = list of multiple full name of a single chromosome such as 'chromosomeX'
 ##    arg_verbose = numeric equivalent from argparser (-vv = 2)
 
-import sys, chromosome_object, Find_regex
+import sys, Chromosome_object, Find_regex
 
 class cls_all_chromosome:
     def __init__(self, arg_taxon, arg_chromosome, arg_searchpattern, arg_verbose):
@@ -30,7 +30,7 @@ class cls_all_chromosome:
 
         ## loop though chromosome numbers passed in, append to the working class list
         for i_chromosome in self.chromosome:
-            wrk_chromosome = chromosome_object.cls_chromosome_object(self.taxon, i_chromosome, self.verbose)
+            wrk_chromosome = Chromosome_object.cls_chromosome_object(self.taxon, i_chromosome, self.verbose)
             wrk_chromosome.build_chromosome()
             ## doing an append to the working list greatly increases memory pressure
             ## perform search on individual wrk_chromosome class objects

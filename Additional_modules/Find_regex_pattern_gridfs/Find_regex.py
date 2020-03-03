@@ -18,7 +18,8 @@ def fnc_search(arg_searchpattern, arg_data, arg_verbose):
 
     ## use finditer to create an "iterator" object to loop through
     ## note: finditer requires strings to search, not lists
-    wrk_founddata = re.finditer(arg_searchpattern, arg_data)
+    tmp_search = re.compile(arg_searchpattern)
+    wrk_founddata = re.finditer(tmp_search, arg_data)
     if(arg_verbose >= 2):
         print(__name__, ' called from: ', sys.argv[0], ' ', 'Full match object reference: ', wrk_founddata)
     tmp_counter = 0
@@ -26,7 +27,10 @@ def fnc_search(arg_searchpattern, arg_data, arg_verbose):
         parm_dataread.append(dataread)
         tmp_counter += 1
         if(arg_verbose >= 2 and tmp_counter <= 10):
-            print(__name__, ' called from: ', sys.argv[0], ' ', 'print only 1st 10 matches: ',  dataread)
+            print(__name__, ' called from: ', sys.argv[0], ' ', 'print 1st 10 matches: ',  dataread)
+    if(dataread and arg_verbose >= 1):
+        print(__name__, ' called from: ', sys.argv[0], ' ', 'total matches found: ', tmp_counter)
+        print(__name__, ' called from: ', sys.argv[0], ' ', 'Length of data: ', '{:,}'.format(len(arg_data)))
 
     return parm_dataread
 
