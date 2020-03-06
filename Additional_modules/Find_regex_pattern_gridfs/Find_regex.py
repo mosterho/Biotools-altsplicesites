@@ -30,7 +30,7 @@ def fnc_search(arg_searchpattern, arg_data, arg_verbose):
             print(__name__, ' called from: ', sys.argv[0], ' ', 'print 1st 10 matches: ',  dataread)
     if(dataread and arg_verbose >= 1):
         print(__name__, ' called from: ', sys.argv[0], ' ', 'total matches found: ', tmp_counter)
-        print(__name__, ' called from: ', sys.argv[0], ' ', 'Length of data: ', '{:,}'.format(len(arg_data)))
+        print(__name__, ' called from: ', sys.argv[0], ' ', 'Number of nucleotides: ', '{:,}'.format(len(arg_data)))
 
     return parm_dataread
 

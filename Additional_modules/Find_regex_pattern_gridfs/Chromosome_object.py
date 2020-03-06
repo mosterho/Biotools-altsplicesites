@@ -24,7 +24,7 @@ class cls_chromosome_object:
 
     def build_chromosome(self):
         ### Use the class cls_seq to create the bytelist of a chromsome, SPLIT off newline characters
-        ### and return a list bytelist of nucleotides
+        ### and return a bytelist of nucleotides
         client = MongoClient('Ubuntu18Server01')
         db = client.Chromosome
         #fsfiles = db.fs.files

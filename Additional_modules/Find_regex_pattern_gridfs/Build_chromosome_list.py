@@ -1,13 +1,13 @@
 
 ##
-## Progam will create a class that contains only
-## of a single chromosome (required argument to this program)
+## Progam will create a class that contains a list of chromosomes.
+## Call the "Chromosome_object" module to retrieve full info from
+## the Mongo GridFS database created from NCBI download files.
 ## One field/attribute contains a single bytestring list of the nucleotides
 ## of the one chromosome passed in
 ## but is still multiline (only the \n is removed)
-##
-## This behaves in a similar manner to the previous project,
-## except that the modules work with the GridFS system.
+## Once the individual chromosome class is created, call the Find_regex
+## module and perform FINDITER to create an iterable match object.
 ##
 ##  arguments:
 ##    arg_taxon = numeric value for species
@@ -28,32 +28,32 @@ class cls_all_chromosome:
         if(self.verbose == 2):
             print(__name__, ' called from: ', sys.argv[0], ' ', self.chromosome)
 
-        ## loop though chromosome numbers passed in, append to the working class list
+        ## loop though chromosome numbers passed in, append to the working class
         for i_chromosome in self.chromosome:
             wrk_chromosome = Chromosome_object.cls_chromosome_object(self.taxon, i_chromosome, self.verbose)
             wrk_chromosome.build_chromosome()
-            ## doing an append to the working list greatly increases memory pressure
+            ## ideally it would be nice to keep each chromosome object available, but
+            ## doing an append to the working_cls_chromosome_object greatly increases memory pressure
             ## perform search on individual wrk_chromosome class objects
             #working_cls_chromosome_object.append(wrk_chromosome)
 
-            # the nucleotides in the class are in a byte list (i.e., multiple lines)
-            # convert this to a single byte string
+            # the nucleotides in the class are in a byte list (i.e., multiple lines and look like b'...')
+            # concatenate this to a single utf-8 string
             wrk_str_nucleotide = ''
             tmp_count = 0
             for i in wrk_chromosome.cls_nucleotides:
-                tmp_count += 1
-                if(self.verbose >= 2 and tmp_count < 6):
-                    print(__name__, ' called from: ', sys.argv[0], ' ', 'Nucleotide string: ', '\n', i)
                 wrk_str_nucleotide += str(i, encoding='utf-8')
+                if(self.verbose >= 2 and tmp_count < 5):
+                    tmp_count += 1
+                    print(__name__, ' called from: ', sys.argv[0], ' ', 'Nucleotide string: ', '\n', i)
             if(self.verbose >= 2):
-                print(__name__, ' called from: ', sys.argv[0], ' ', 'Subset of the full Nucleotide string: ', wrk_str_nucleotide[0:120])
-            rtn_matchobject = Find_regex.fnc_search(self.searchpattern, wrk_str_nucleotide, self.verbose)
+                print(__name__, ' called from: ', sys.argv[0], ' ', 'Subset of the full Nucleotide string: ', wrk_str_nucleotide[0:60])
 
+            ### call Find_regex to create an iterable match object
+            rtn_matchobject = Find_regex.fnc_search(self.searchpattern, wrk_str_nucleotide, self.verbose)
             if(self.verbose >= 1):
                 print(__name__, ' called from: ', sys.argv[0], ' ', 'a subset of the returned match object is: ', rtn_matchobject[0:5])
-                print(__name__, ' called from: ', sys.argv[0], ' ', 'Class object for ', i_chromosome, ' complete')
-        #if(self.verbose == 2):
-            #print(__name__, ' called from: ', sys.argv[0], ' ', 'Full working class chromosome object (i.e. all chromosomes): ', working_cls_chromosome_object)
+                print(__name__, ' called from: ', sys.argv[0], ' ', 'Class object for ', i_chromosome, ' ', wrk_chromosome.chromosome_title, ' complete')
 
 
 #-------------------------------------------------------------------------------

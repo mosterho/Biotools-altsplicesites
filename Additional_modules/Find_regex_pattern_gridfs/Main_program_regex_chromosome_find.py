@@ -54,5 +54,5 @@ if (__name__ == "__main__"):
     if(rslt_parser.verbose == 2):
         print(__name__, ' called from: ', sys.argv[0], ' ', 'Result of the creating container is: ', wrk_container)
 
-    ## Build the chromosome list -- this will contain all info (taxon, details about chromosome, search pattern)
+    ## Build the chromosome list -- this will contain all info (taxon, some details about chromosome, search pattern)
     wrk_Buildchromosomelist = Build_chromosome_list.cls_all_chromosome(wrk_container.taxon, wrk_container.chromosome, wrk_container.searchpattern,  wrk_container.verbose)

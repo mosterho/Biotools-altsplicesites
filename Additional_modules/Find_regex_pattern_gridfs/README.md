@@ -11,9 +11,9 @@ The difference in calling the main program is that it uses the Python ArgParse m
 ##Details of the nucleotide search
 The modules are:
 1. *Main_program_regex_chromosome_find.py* Validates input and calls the following modules (in the following order)
-2. *Build_chromosome_list.py* 
-3. *chromosome_object.py* Retrieves the genome/nucleotides for a species and nucleotide accession number from the GridFS database.
-4. *Find_regex.py* Determines the from/to positions in the retrieved sequence from *Build_chromosome_list.py*
+2. *Build_chromosome_list.py* Creates a class that contains a list of chromosomes selected, calls "Chromosome_object" module to create individual class objects containing info on nucleotides, etc. Then calls "Find_regex" module to perform the search and create an iterable match object.
+3. *chromosome_object.py* Retrieves the genome/nucleotides for a species and nucleotide accession number from the GridFS database. Creates a "chromosome" class containing the nucleotide sequence, etc. 
+4. *Find_regex.py* Determines the from/to positions in the retrieved sequence from *Build_chromosome_list.py* and creates an iterable match object with SCAN positions.
 
 All of the Python programs can be called separately with the appropriate parameters.
 
@@ -261,6 +261,7 @@ Result from calling program for  TATA+(?=[ATCG])+ATG(?=[ATCG]{3})+(TAA|TAG|TGA)
 
 ##THIS WORKS, the previous ones from my school project may have never worked, esp. when using '?=' ('+' should work as well as '*') (2 Mar 2020)
 python3 Main_program_regex_chromosome_find.py 9606 -c  X Y -s 'TATA([ATCG])*ATG([ATCG]{3})*(TAA|TAG|TGA)' -vv
+
 
 ##THIS WORKS, testing the Find_regex.py module, including an extra 'A' after 'TATA'
 First example tests for the extra 'A', but is not in the data
