@@ -6,7 +6,7 @@ This folder contains another project of additional self-assigned programs that I
 
 This self-assigned project is to find nucleotides via search string in the GridFS collection in a new "Chromosome" Mongo database. This database is not part of the original Biotools project. Data were initially loaded via mongofiles module that created a GridFS style database. 
 
-The difference in calling the main program is that it uses the Python ArgParse method of working with parameters and arguments. This still search for a nucleotide pattern using a REGEX pattern and return the from/to positions that were found via iterable Match objects.
+The difference in calling the main program is that it uses the Python ArgParse method of working with parameters and arguments. This still searches for a nucleotide pattern using a REGEX pattern and returns the from/to positions that were found via iterable match objects.
 
 ##Details of the nucleotide search
 The modules are:
@@ -27,7 +27,7 @@ The call to the *main_program_regex_chromosome_find.py* accepts four parameters/
 ##Examples
 The following calls to the *Main_program_regex_chromosome_find.py* python module:
 
-###Looking for transcription start codon "ATG" in chromosomes 1 and 2, but using -h flag
+###Looking for transcription start codon "ATG" in chromosomes 1 and 2, but adding -h flag for help
 python3 Main_program_regex_chromosome_find.py 9606 -c 1  -s 'ATG' -v -h
 usage: Search chromosome(s) in the GridFS system for a pattern. The arugments accepted include: a single taxon; multiple chromsome numbers (1 2 X Y); a search pattern; verbose output option
 
