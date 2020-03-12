@@ -28,8 +28,9 @@ for fs_datafind in fs.find({"filename":"9606_Genome"}):
     x = fs_datafind.read()
     start_time = datetime.now()
     print('x from read() is: ', x[:100], 'at: ', start_time)
-    another_loop = x.split(b'\n')  # split creates a list
-    for new_list in another_loop:
+    #another_loop = x.split(b'\n')  # split creates a list
+    for new_list in x:
+        print('New_list: ', new_list)
         # if wrk_tag is set and b'>' (any new accession) is encountered,
         # write the accession data and reset wrk_tag'
         if(wrk_tag and new_list[0:1] == b'>'):

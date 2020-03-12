@@ -11,7 +11,7 @@
 from pymongo import MongoClient
 import gridfs
 
-client = MongoClient('Ubuntu18Server01')
+client = MongoClient('mongodb')
 db = client.Genome
 #fs = gridfs.GridFS(db)  # for writing to a new file
 fsbucket = gridfs.GridFSBucket(db)  # for reading the existing Genome file
