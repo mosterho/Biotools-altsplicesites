@@ -24,7 +24,7 @@ print('x_decoded: ', x_decoded, '\n')
 
 # the following catches everything correctly except the last accession
 #pattern = re.compile('>NC_0000.+?(?=>)', re.DOTALL)
-pattern = re.compile(r'>NC_0000.+?(?=>)', re.DOTALL)
+pattern = re.compile(r'>NC_0000.+?(?=\n>)', re.DOTALL)
 match_object = re.findall(pattern, x_decoded)
 #match_object = re.findall(pattern, x_decoded_sub)
 for new_list in match_object:

@@ -22,14 +22,15 @@ fs          = gridfs.GridFSBucket(db)
 wrk_tag = False
 wrk_filename = ''
 wrk_data = ''
-pattern = re.compile(r'>NC_\w*(?=>)')
-print('Starting: ', datetime.now())
+pattern = re.compile(r'>NC_0000.+?(?=\n>)', re.DOTALL)
+start_time = datetime.now()
+print('Starting: ', start_time)
 
 # Retrieve data from "9606_Genome"
 fs_datafind = fs.open_download_stream_by_name("9606_Genome")
 dataread = fs_datafind.read()
-start_time = datetime.now()
-print('dataread from read() is: ', dataread[:1000], 'at: ', start_time)
+
+print('dataread from read() is: ', dataread[:1000], 'at: ', datetime.now())
 
 # use a REGEX "findall" to loop through this single string
 # and return a tuple of strings found
@@ -37,10 +38,10 @@ x_decoded = dataread.decode()
 print('x_decoded: ', x_decoded[:1000])
 match_object = re.findall(pattern, x_decoded)
 for new_list in match_object:
-    print('New_list match object: ', new_list)
+    #print('New_list match object: ', new_list)
     wrk_filename = new_list[1:10]
     wrk_dataforwrite = new_list.encode()
-    print('File name: ', wrk_filename, 'data: ', wrk_dataforwrite)
+    print('File name: ', wrk_filename, '\ndata: ', wrk_dataforwrite[:100])
     fs_forwrite.put(wrk_dataforwrite, disable_md5 = True, filename=wrk_filename)
 
 end_time = datetime.now()
