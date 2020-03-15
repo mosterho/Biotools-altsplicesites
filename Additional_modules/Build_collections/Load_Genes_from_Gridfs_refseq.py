@@ -12,6 +12,7 @@ fs_forwrite = db.refseqgene_file  # for writing to a new file
 fs_forread  = gridfs.GridFSBucket(db)
 
 ## delete any entries in refseqgene_file before starting
+print('perform "delete_many" on existing refseqgene collection')
 fs_forwrite.delete_many({})
 
 wrk_accession_break = ''
@@ -36,7 +37,7 @@ for fs_find in fs_forread.find({}):
             for x in gene_abbrev_list:
                 gene_abbrev = x
             description = x_read[13:]
-            write_data = ''
+            write_data = x_read
         else:
             write_data += x_read
     Nucleotide_encoded = write_data.encode()
